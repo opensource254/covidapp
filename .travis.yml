@@ -1,15 +1,47 @@
 language: android
 jdk: oraclejdk8
+
+before_cache:
+
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+
+  directories:
+
+    - $HOME/.gradle/caches/
+
+    - $HOME/.gradle/wrapper/
+
+env:
+  global:
+   - ANDROID_API_LEVEL=29
+   - ANDROID_EMULATOR_LEVEL=27
+   - ANDROID_BUILD_TOOLS_VERSION=29.0.1
+   - ADB_INSTALL_TIMEOUT=20
+   - ANDROID_ABI=armeabi-v7a
+   - ANDROID_TAG=google_apis
+   - QEMU_AUDIO_DRV=none
+
 android:
   components:
-    - build-tools-29.0.1
-    - android-29
-    - extra
-   licenses:
+    - tools
+    - platiforms-tools
+    - tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    - android-$ANDROID_EMULATOR_LEVEL
+    - extra-google-$google-m2repository
+    - extra-android-$android-m2repository
+    - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMULATOR_LEVEL
+  licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
-    
+
+
 # Emulator Management: Create, Start and Wait
 before_script:
   - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -c 100M
