@@ -116,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="more updates"
-            android:textColor="#000"
+            android:textColor="#600288D1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,8 +130,8 @@
             android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
                     android:layout_margin="7dp"
                     app:cardElevation="0dp"
                     app:cardCornerRadius="10dp"
@@ -165,8 +165,8 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
                     android:layout_margin="7dp"
                     app:cardElevation="0dp"
                     app:cardCornerRadius="10dp"
@@ -202,6 +202,25 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/text_feeling_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="feeling bad !"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layouthealth" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_talk_to_a_doctor"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:elevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_feeling_bad"
+            android:layout_width="wrap_content"
+            android:textColor="#600288D1"
+            android:layout_height="wrap_content"
+            android:text="talk to a doctor"/>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"
             style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
@@ -211,10 +230,10 @@
             android:background="@drawable/bottomnavround"
             app:backgroundTint="#fff"
             app:elevation="20dp"
-            app:itemIconTint="?attr/colorPrimaryVariant"
-            app:itemRippleColor="?attr/colorPrimary"
+            app:itemIconTint="?attr/colorAccent"
+            app:itemRippleColor="?attr/colorAccent"
             app:itemTextAppearanceActive="@color/colorPrimary"
-            app:itemTextColor="?attr/colorPrimaryVariant"
+            app:itemTextColor="?attr/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
