@@ -487,6 +487,19 @@
 
 
                 </LinearLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/btn_talk_more_tips"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="0dp"
+                    android:text="more tips"
+                    android:textColor="#600288D1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_sub_tips1" />
+
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
