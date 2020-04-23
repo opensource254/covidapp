@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/GitCodes-covidapp-app.iml" filepath="$PROJECT_DIR$/app/GitCodes-covidapp-app.iml" group="covidkenya/app" />
+      <module fileurl="file://$PROJECT_DIR$/GitCodes-covidapp-covidkenya.iml" filepath="$PROJECT_DIR$/GitCodes-covidapp-covidkenya.iml" group="covidkenya" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="covidkenya/app" />
       <module fileurl="file://$PROJECT_DIR$/app/covidapp-app.iml" filepath="$PROJECT_DIR$/app/covidapp-app.iml" group="covidkenya/app" />
       <module fileurl="file://$PROJECT_DIR$/covidapp-covidkenya.iml" filepath="$PROJECT_DIR$/covidapp-covidkenya.iml" group="covidkenya" />
