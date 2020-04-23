@@ -172,13 +172,13 @@
                             android:src="@drawable/ic_healt_units" />
 
                         <TextView
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/textColor"
                             android:id="@+id/txt_health_units"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
                             android:text="@string/health_units"
+                            android:textColor="@color/textColor"
                             android:textSize="15sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -209,13 +209,13 @@
 
 
                         <TextView
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/textColor"
                             android:id="@+id/txt_alerts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
                             android:text="@string/news"
+                            android:textColor="@color/textColor"
                             android:textSize="15sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -284,12 +284,12 @@
                                 android:src="@drawable/ic_corona" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_what_is_corona"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="what is corona virus"
+                                android:textColor="@color/textColor"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -320,12 +320,12 @@
                                 android:src="@drawable/ic_symptoms" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_symptoms"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="what are the symptoms"
+                                android:textColor="@color/textColor"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -355,12 +355,12 @@
 
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_transmission"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="how its transmitted"
+                                android:textColor="@color/textColor"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -401,12 +401,12 @@
                                 android:src="@drawable/ic_washing_hands" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_prevention"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="how to prevent it"
+                                android:textColor="@color/textColor"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -437,12 +437,12 @@
                                 android:src="@drawable/ic_mask" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_wear_mask"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="when to wear mask"
+                                android:textColor="@color/textColor"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -472,12 +472,12 @@
 
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_fake_news"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="fake news"
+                                android:textColor="@color/textColor"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
