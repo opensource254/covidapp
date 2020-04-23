@@ -25,16 +25,11 @@ public class MainActivity extends AppCompatActivity {
         CardView mnews = findViewById(R.id.card_news);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        //starting News activity
-        mnews.setOnClickListener(this::card_btn_news);
-
+        //setting up home fragment to be default
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
 
         }
 
-    //onclick  for news card
-    public void  card_btn_news(View v) {
-        startActivity(new Intent(MainActivity.this, NewsActivity.class));
-    }
 
     //handling bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
