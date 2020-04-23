@@ -28,7 +28,7 @@ android {
     sourceSets {
         main {
             java {
-                srcDirs 'src/main/java', 'src/main/java/app/azim/opensource254/covidkenya/adapters', 'src/main/java/app/azim/opensource254/covidkenya/items'
+                srcDirs 'src/main/java', 'src/main/java/app/azim/opensource254/covidkenya/adapters', 'src/main/java/app/azim/opensource254/covidkenya/items', 'src/main/java/app/aim/opensource254/covidkenya/fragments', 'src/main/java/app/azim/opensource254/covidkenya/fragments'
             }
         }
     }

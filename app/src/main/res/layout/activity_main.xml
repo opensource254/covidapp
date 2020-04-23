@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
+
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll_home"
         android:layout_width="match_parent"
@@ -15,6 +19,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_nav_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -510,10 +520,12 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/bottom_nav_view"
         style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

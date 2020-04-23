@@ -2,6 +2,7 @@ package app.azim.opensource254.covidkenya;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CardView mnews = findViewById(R.id.card_news);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         //starting News activity
         mnews.setOnClickListener(this::card_btn_news);
+
 
         }
 
@@ -35,18 +39,24 @@ public class MainActivity extends AppCompatActivity {
     //handling bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
+        Fragment selectedFragment = null;
+
         switch (item.getItemId()) {
+
             case R.id.navigation_home:
-                // return true;
+                selectedFragment = null;
+                break;
             case R.id.navigation_alerts:
-                //   startActivity(new Intent(MainActivity.this, AlertsActivity.class));
-                //   finish();
-                return true;
+                selectedFragment = new AlertFragment();
+                break;
             case R.id.navigation_updates:
-                //  startActivity(new Intent(MainActivity.this, updatesActivity.class));
-                //  finish();
+                selectedFragment = new UpdatesFragment();
+
         }
-        return false;
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                selectedFragment).commit();
+        return  true;
+
     };
 
 }
