@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.navigation_home:
-                selectedFragment = null;
+                selectedFragment = new HomeFragment();
                 break;
             case R.id.navigation_alerts:
                 selectedFragment = new AlertFragment();
