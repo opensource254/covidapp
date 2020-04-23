@@ -179,7 +179,6 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_news"
                     android:clickable="true"
-                    android:onClick="card_btn_news"
                     android:layout_width="120dp"
                     android:layout_height="150dp"
                     android:layout_margin="7dp"
