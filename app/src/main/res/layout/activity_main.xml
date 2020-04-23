@@ -39,7 +39,8 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_margin="7dp">
+                    android:layout_margin="7dp"
+                    android:focusable="true">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -187,6 +188,9 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_news"
+                    android:clickable="true"
+                    android:onClick="card_btn_news"
                     android:layout_width="120dp"
                     android:layout_height="150dp"
                     android:layout_margin="7dp"

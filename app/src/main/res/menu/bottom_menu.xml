@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_Home"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ichome"
         android:title="Home" />
 
     <item
-        android:id="@+id/navigation_News"
+        android:id="@+id/navigation_alerts"
         android:icon="@drawable/icnews"
         android:title="News" />
     <item
-        android:id="@+id/navigation_Updates"
+        android:id="@+id/navigation_updates"
         android:icon="@drawable/icsituation"
         android:title="Updates" />
 
