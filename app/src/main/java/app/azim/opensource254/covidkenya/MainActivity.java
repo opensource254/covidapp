@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -45,9 +46,17 @@ public class MainActivity extends AppCompatActivity {
         RetrofitServiceInstance.getApiService().getCountryData().enqueue(new Callback<Object>() {
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
-                //progressDialog.show();
-                Country  selectCountryData = (Country) response.body();
-                System.out.println("Response "+ selectCountryData.toString());
+
+                Country countryData;
+
+                if(response.isSuccessful()) {
+
+                    String jsonString = response.body().toString();
+                    System.out.println("Response "+jsonString);
+//                    countryData = new Gson().fromJson(jsonString, Country.class);
+//                    System.out.println("Response "+ countryData);
+
+                }
 
             }
 
