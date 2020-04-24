@@ -4,7 +4,7 @@
     <item android:drawable="@android:color/white" />
     <item>
         <bitmap
-            android:src="@drawable/ic_corona"
+            android:src="@drawable/ic_logo"
             android:gravity="center" />
     </item>
 
