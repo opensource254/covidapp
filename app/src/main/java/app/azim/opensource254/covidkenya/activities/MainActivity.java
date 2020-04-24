@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.api.RetrofitServiceInstance;
@@ -46,10 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()) {
 
-                    String jsonString = response.body().toString();
-                    System.out.println("Response "+jsonString);
-//                    countryData = new Gson().fromJson(jsonString, Country.class);
-//                    System.out.println("Response "+ countryData);
+                    String jsonString = new Gson().toJson(response.body());
+                    System.out.println("Response "+ jsonString);
 
                 }
 
