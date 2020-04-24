@@ -10,7 +10,7 @@ public class RetrofitServiceInstance {
 
     private static Retrofit retrofit;
 
-    private static String baseUrl = "";
+    private static String baseUrl = "https://rona-api.herokuapp.com";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

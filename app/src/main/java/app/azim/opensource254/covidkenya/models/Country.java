@@ -52,4 +52,15 @@ public class Country {
         this.longitude = longitude;
     }
 
+    @Override
+    public String toString() {
+        return "Country{" +
+                "state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", lattitude='" + lattitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", dataStream=" + dataStream +
+                ", total=" + total +
+                '}';
+    }
 }

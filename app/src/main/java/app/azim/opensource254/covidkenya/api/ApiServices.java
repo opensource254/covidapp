@@ -9,6 +9,9 @@ import retrofit2.http.GET;
 
 public interface ApiServices {
 
+    @GET("/kenya")
+    Call<Object> getCountryData();
+
 
 
 }
