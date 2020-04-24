@@ -10,9 +10,13 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.api.RetrofitServiceInstance;
 import app.azim.opensource254.covidkenya.models.Country;
+import app.azim.opensource254.covidkenya.models.DataStream;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fetchDataForCountry("kenya");
-
         CardView mnews = findViewById(R.id.card_news);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -38,30 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-    private void fetchDataForCountry(String country) {
-        RetrofitServiceInstance.getApiService().getCountryData().enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
 
-                Country countryData;
-
-                if(response.isSuccessful()) {
-
-                    String jsonString = new Gson().toJson(response.body());
-                    System.out.println("Response "+ jsonString);
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-                //progressDialog.dismiss();
-                Toast.makeText(MainActivity.this, "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                System.out.println("response  Error  "+ t.getMessage());
-            }
-        });
-    }
 
 
     //handling bottom navigation
