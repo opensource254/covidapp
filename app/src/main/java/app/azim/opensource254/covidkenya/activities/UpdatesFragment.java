@@ -1,4 +1,4 @@
-package app.azim.opensource254.covidkenya;
+package app.azim.opensource254.covidkenya.activities;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,13 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class AlertFragment extends Fragment {
+import app.azim.opensource254.covidkenya.R;
+
+public class UpdatesFragment extends Fragment {
 
 
     //overriding oncreate view
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_alert,container,false);
+        return inflater.inflate(R.layout.fragment_updates,container,false);
     }
 }
