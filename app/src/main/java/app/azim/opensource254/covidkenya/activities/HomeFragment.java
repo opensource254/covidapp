@@ -13,12 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.TipsActivity;
 import app.azim.opensource254.covidkenya.activities.NewsActivity;
 import app.azim.opensource254.covidkenya.api.RetrofitServiceInstance;
 import retrofit2.Call;
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
 
     private TextView cases, recovered, deaths;
 
+
     //overriding oncreate view
     @Nullable
     @Override
@@ -38,12 +41,14 @@ public class HomeFragment extends Fragment {
         cases = v.findViewById(R.id.txt_cases);
         recovered = v.findViewById(R.id.txt_recovered);
         deaths = v.findViewById(R.id.txt_deaths);
+        MaterialButton moreTips = v.findViewById(R.id.btn_talk_more_tips);
 
         fetchDataForCountry("kenya");
 
         CardView mnews = v.findViewById(R.id.card_news);
         //starting News activity
         mnews.setOnClickListener(this::card_btn_news);
+        moreTips.setOnClickListener(this::btn_more_tips);
         return v;
     }
 
@@ -91,5 +96,7 @@ public class HomeFragment extends Fragment {
         startActivity(new Intent(getActivity(), NewsActivity.class));
     }
 
-
+    public void btn_more_tips(View v){
+        startActivity(new Intent(getActivity(), TipsActivity.class));
+    }
 }
