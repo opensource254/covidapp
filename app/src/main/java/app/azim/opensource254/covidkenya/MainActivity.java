@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.navigation_alerts:
                 selectedFragment = new AlertFragment();
                 break;
-            case R.id.navigation_updates:
+            case R.id.navigation_situations:
                 selectedFragment = new UpdatesFragment();
 
         }
