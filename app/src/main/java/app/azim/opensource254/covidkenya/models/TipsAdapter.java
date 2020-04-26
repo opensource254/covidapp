@@ -41,11 +41,11 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
 
         final TipsData tips = tipsData.get(position);
 
-        holder.tip.setText(tips.getDetails());
+        holder.tip.setText(tips.getTitle());
 
 
         Picasso.get()
-                .load(tips.getImage_url())
+                .load(tips.getImage())
                 .into(holder.image);
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,6 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView tip;
-        TextView url;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
