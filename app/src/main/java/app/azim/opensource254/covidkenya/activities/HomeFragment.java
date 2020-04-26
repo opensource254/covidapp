@@ -20,8 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.TipsActivity;
-import app.azim.opensource254.covidkenya.activities.NewsActivity;
 import app.azim.opensource254.covidkenya.api.RetrofitServiceInstance;
 import retrofit2.Call;
 import retrofit2.Callback;
