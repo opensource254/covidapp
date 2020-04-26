@@ -64,8 +64,8 @@ public class TipsActivity extends AppCompatActivity {
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jobj = jsonArray.getJSONObject(i);
-                        TipsData tipsData1 = new TipsData(jobj.getString("login"),
-                                jobj.getString("avatar_url"));
+                        TipsData tipsData1 = new TipsData(jobj.getString("id"),jobj.getString("title")
+                                ,jobj.getString("detail"),jobj.getString("thumbnailUrl"));
                         tipsData.add(tipsData1);
                     }
                     adapter = new TipsAdapter(tipsData, getApplicationContext());

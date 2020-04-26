@@ -1,21 +1,28 @@
 package app.azim.opensource254.covidkenya.models;
 
 public class TipsData {
+    private String tipId;
     private String title;
-    private String image_url;
+    private String detail;
+    private String image;
 
 
-    public String getDetails() {
+    public String getTipId(){ return  tipId;}
+
+    public String getTitle() {
         return title;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getDetail(){ return detail;}
+
+    public String getImage() {
+        return image;
     }
 
-    public TipsData(String title,String avatar_url) {
+    public TipsData(String tipId,String title,String detail,String image) {
+        this.tipId = tipId;
         this.title = title;
-        this.image_url = avatar_url;
-
+        this.detail = detail;
+        this.image = image;
     }
 }
