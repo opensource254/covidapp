@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.adapter.NewsRecyclerAdapter;
 import app.azim.opensource254.covidkenya.models.Tweet;
 
 public class NewsActivity extends AppCompatActivity {

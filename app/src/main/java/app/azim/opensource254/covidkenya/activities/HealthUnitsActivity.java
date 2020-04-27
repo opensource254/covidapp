@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.adapter.HealthUnitsRecyclerAdapter;
 import app.azim.opensource254.covidkenya.models.HealthUnit;
 
 public class HealthUnitsActivity extends AppCompatActivity {
