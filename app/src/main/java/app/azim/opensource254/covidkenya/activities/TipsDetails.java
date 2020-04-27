@@ -24,18 +24,14 @@ public class TipsDetails extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String details = intent.getStringExtra(EXTRA_DETAILS);
-      //  String image = intent.getStringExtra(EXTRA_IMAGE_URL);
+        String details = intent.getStringExtra(EXTRA_IMAGE_URL);
+        String image = intent.getStringExtra(EXTRA_IMAGE_URL);
 
-        TextView text = findViewById(R.id.text_detailsq);
-       // ImageView imageView = findViewById(R.id.imageHolder);
+        TextView text = findViewById(R.id.text_tips_title);
+        ImageView imageView = findViewById(R.id.img_tips);
 
-
-      //  Picasso.get()
-        //        .load(image)
-        //        .centerCrop()
-         //       .into(imageView);
-
+         //setting up image and text for tips detail activity
+        Picasso.get().load(image).fit().centerInside().into(imageView);
         text.setText(details);
     }
 }
