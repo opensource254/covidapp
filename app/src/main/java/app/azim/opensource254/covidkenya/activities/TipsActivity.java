@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.models.TipsAdapter;
+import app.azim.opensource254.covidkenya.adapter.TipsAdapter;
 import app.azim.opensource254.covidkenya.models.TipsData;
 
 public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnItemClickListener {
