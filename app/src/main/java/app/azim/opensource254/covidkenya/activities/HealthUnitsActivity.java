@@ -36,6 +36,7 @@ public class HealthUnitsActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Health Units");
         healthUnitsList = new ArrayList<HealthUnit>();
 
         getHealthUnitsList();
