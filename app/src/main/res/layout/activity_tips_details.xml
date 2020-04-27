@@ -6,14 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".activities.TipsDetails">
 
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_tips"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_tips_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/text_detailsq"
+        android:id="@+id/text_tips_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="details"
+        android:layout_margin="8dp"
+        android:layout_marginTop="16dp"
+        android:text="tips heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_tips" />
+
+    <TextView
+        android:layout_margin="8dp"
+        android:id="@+id/text_tips_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />.
+        app:layout_constraintTop_toBottomOf="@+id/text_tips_title"
+        app:layout_constraintVertical_bias="0.028" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
