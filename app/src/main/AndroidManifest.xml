@@ -24,6 +24,12 @@
         <activity
             android:name=".activities.NewsActivity"
             android:label="news" />
+        <activity
+            android:name=".activities.TipsActivity"
+            android:label="tips" />
+        <activity
+            android:name=".activities.TipsDetails"
+            android:label="details" />
 
         <meta-data
             android:name="preloaded_fonts"
