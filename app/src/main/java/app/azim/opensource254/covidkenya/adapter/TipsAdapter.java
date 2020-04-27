@@ -1,7 +1,6 @@
-package app.azim.opensource254.covidkenya.models;
+package app.azim.opensource254.covidkenya.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.activities.TipsDetails;
+import app.azim.opensource254.covidkenya.models.TipsData;
 
 public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
     private List<TipsData> tipsData;
