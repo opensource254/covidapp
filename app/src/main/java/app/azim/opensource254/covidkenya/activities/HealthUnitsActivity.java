@@ -14,76 +14,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.models.Tweet;
+import app.azim.opensource254.covidkenya.models.HealthUnit;
 
-public class NewsActivity extends AppCompatActivity {
+public class HealthUnitsActivity extends AppCompatActivity {
     //custom  top toolbar
     private Toolbar mtoolbar;
 
     private RecyclerView recyclerView;
-    private NewsRecyclerAdapter recyclerAdapter;
+    private HealthUnitsRecyclerAdapter recyclerAdapter;
 
-    List<Tweet> newsList;
+    List<HealthUnit> healthUnitsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+        setContentView(R.layout.activity_health_units);
 
         //setting up main toolbar
-        mtoolbar = findViewById(R.id.news_tool_bar);
+        mtoolbar = findViewById(R.id.health_units_tool_bar);
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        newsList = new ArrayList<Tweet>();
+        healthUnitsList = new ArrayList<HealthUnit>();
 
-        getNewsList();
+        getHealthUnitsList();
 
-        recyclerView = findViewById(R.id.news_recycler_view);
-        recyclerAdapter = new NewsRecyclerAdapter(newsList);
+        recyclerView = findViewById(R.id.health_units_recycler_view);
+        recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
         recyclerView.setAdapter(recyclerAdapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
     }
 
-    private List<Tweet> getNewsList(){
-        Tweet tweet = new Tweet();
-        tweet.setId(1);
-        tweet.setHead("Ministry Of Health Kenya");
-        tweet.setHandle("@mohkenya");
-        tweet.setTweet("the government has …...");
-        tweet.setTime("20/4/2020");
-        tweet.setImage("https://tweet/image");
-        newsList.add(tweet);
+    private List<HealthUnit> getHealthUnitsList(){
+        HealthUnit healthUnit = new HealthUnit();
+        healthUnit.setOpen("open");
+        healthUnit.setTitle("Aga Khan");
+        healthUnit.setDescription("this hospital is located in...");
+        healthUnitsList.add(healthUnit);
 
-        Tweet tweet1 = new Tweet();
-        tweet1.setId(2);
-        tweet1.setHead("Ministry Of Health Kenya");
-        tweet1.setHandle("@mohkenya");
-        tweet1.setTweet("the senate has …...");
-        tweet1.setTime("20/4/2020");
-        tweet1.setImage("https://tweet/image");
-        newsList.add(tweet1);
+        HealthUnit healthUnit1 = new HealthUnit();
+        healthUnit1.setOpen("open");
+        healthUnit1.setTitle("Kenyatta National Referral Hospital");
+        healthUnit1.setDescription("this hospital is located in...");
+        healthUnitsList.add(healthUnit1);
 
-        Tweet tweet2 = new Tweet();
-        tweet2.setId(3);
-        tweet2.setHead("Ministry Of Health Kenya");
-        tweet2.setHandle("@mohkenya");
-        tweet2.setTweet("Parliament has …...");
-        tweet2.setTime("20/4/2020");
-        tweet2.setImage("https://tweet/image");
-        newsList.add(tweet2);
+        HealthUnit healthUnit2 = new HealthUnit();
+        healthUnit2.setOpen("closed");
+        healthUnit2.setTitle("Mbagathi Referral Hospital");
+        healthUnit2.setDescription("this hospital is located in...");
+        healthUnitsList.add(healthUnit2);
 
-        Tweet tweet3 = new Tweet();
-        tweet3.setId(4);
-        tweet3.setHead("Ministry Of Health Kenya");
-        tweet3.setHandle("@mohkenya");
-        tweet3.setTweet("the Nairobi County Assembly has …...");
-        tweet3.setTime("20/4/2020");
-        tweet3.setImage("https://tweet/image");
-        newsList.add(tweet3);
-        return newsList;
+        HealthUnit healthUnit3 = new HealthUnit();
+        healthUnit3.setOpen("open");
+        healthUnit3.setTitle("Mama Lucy");
+        healthUnit3.setDescription("this hospital is located in...");
+        healthUnitsList.add(healthUnit3);
+        return healthUnitsList;
     }
 
     //setting navigate up button
@@ -95,7 +83,7 @@ public class NewsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.news_menu, menu);
+        getMenuInflater().inflate(R.menu.health_units_menu, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
