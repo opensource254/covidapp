@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -15,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,9 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
     private RecyclerView recyclerView;
     private TipsAdapter adapter;
     private List<TipsData> tipsData;
+    private ShimmerFrameLayout mShimmerViewContainer;
+
+
 
     private static final String URL_DATA = "https://api.github.com/search/users?q=language:android+location:kenya";
     private static final String URL_DAT = "https://jsonplaceholder.typicode.com/photos";
@@ -45,7 +50,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips);
 
-
+        mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
@@ -55,14 +60,16 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
     }
 
     private void loadURLs(){
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
+       // final ProgressDialog progressDialog = new ProgressDialog(this);
+      //  progressDialog.setMessage("Loading...");
+      //  progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_DATA, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
+                // Stopping Shimmer Effect's animation after data is loaded to ListView
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
                 try {
                     RecyclerView recyclerView = findViewById(R.id.recycler_view);
                     JSONObject jsonObject = new JSONObject(response);
@@ -101,5 +108,17 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         detailIntent.putExtra(EXTRA_DETAILS, clickedItem.getDetail());
 
         startActivity(detailIntent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mShimmerViewContainer.startShimmerAnimation();
+    }
+
+    @Override
+    protected void onPause() {
+        mShimmerViewContainer.stopShimmerAnimation();
+        super.onPause();
     }
 }
