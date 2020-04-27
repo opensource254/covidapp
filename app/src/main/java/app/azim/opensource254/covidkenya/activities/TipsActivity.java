@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -26,13 +27,18 @@ import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.models.TipsAdapter;
 import app.azim.opensource254.covidkenya.models.TipsData;
 
-public class TipsActivity extends AppCompatActivity {
+public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnItemClickListener {
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private TipsAdapter adapter;
     private List<TipsData> tipsData;
 
     private static final String URL_DATA = "https://api.github.com/search/users?q=language:android+location:kenya";
+    private static final String URL_DAT = "https://jsonplaceholder.typicode.com/photos";
+
+    public static final String EXTRA_IMAGE_URL= "imageUrl";
+    public static final String EXTRA_DETAILS = "details";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +70,13 @@ public class TipsActivity extends AppCompatActivity {
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jobj = jsonArray.getJSONObject(i);
-                        TipsData tipsData1 = new TipsData(jobj.getString("id"),jobj.getString("title")
-                                ,jobj.getString("detail"),jobj.getString("thumbnailUrl"));
+                        TipsData tipsData1 = new TipsData(jobj.getString("id"),jobj.getString("login")
+                                ,jobj.getString("html_url"),jobj.getString("avatar_url"));
                         tipsData.add(tipsData1);
                     }
                     adapter = new TipsAdapter(tipsData, getApplicationContext());
                     recyclerView.setAdapter(adapter);
+                    adapter.setOnItemClickListener(TipsActivity.this);
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
@@ -84,5 +91,15 @@ public class TipsActivity extends AppCompatActivity {
 
         RequestQueue requestQueue  = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(this,TipsDetails.class);
+        TipsData clickedItem = tipsData.get(position);
+        detailIntent.putExtra(EXTRA_IMAGE_URL, clickedItem.getImage());
+        detailIntent.putExtra(EXTRA_DETAILS, clickedItem.getDetail());
+
+        startActivity(detailIntent);
     }
 }
