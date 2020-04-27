@@ -4,15 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="ministry of health kenya" />
         <TextView
-            android:id="@+id/txt_twitter_hadle"
+            android:id="@+id/txt_twitter_handle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ministry of health kenya" />
@@ -31,11 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan to mtronic" />
+
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_twitter_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/imgplaceholder"
-            />
+            android:src="@drawable/imgplaceholder" />
+
         <TextView
             android:id="@+id/txt_post_time"
             android:layout_gravity="right"
@@ -43,8 +43,7 @@
             android:layout_height="wrap_content"
             android:text="11/20/2020" />
 
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,8 +42,11 @@ public class HomeFragment extends Fragment {
         fetchDataForCountry("kenya");
 
         CardView mnews = v.findViewById(R.id.card_news);
+        CardView mheathunits = v.findViewById(R.id.card_health_units);
         //starting News activity
         mnews.setOnClickListener(this::card_btn_news);
+        //starting Heath Units activity
+        mheathunits.setOnClickListener(this::card_btn_health_units);
         return v;
     }
 
@@ -89,6 +92,11 @@ public class HomeFragment extends Fragment {
     //onclick  for news card
     public void  card_btn_news(View v) {
         startActivity(new Intent(getActivity(), NewsActivity.class));
+    }
+
+    //onclick  for health units card
+    public void  card_btn_health_units(View v) {
+        startActivity(new Intent(getActivity(), HealthUnitsActivity.class));
     }
 
 
