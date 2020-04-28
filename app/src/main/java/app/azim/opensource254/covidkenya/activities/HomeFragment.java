@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -28,6 +29,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     private TextView cases, recovered, deaths;
+    MaterialButton moreTips;
 
     //overriding oncreate view
     @Nullable
@@ -38,6 +40,8 @@ public class HomeFragment extends Fragment {
         cases = v.findViewById(R.id.txt_cases);
         recovered = v.findViewById(R.id.txt_recovered);
         deaths = v.findViewById(R.id.txt_deaths);
+        moreTips = v.findViewById(R.id.btn_talk_more_tips);
+
 
         fetchDataForCountry("kenya");
 
@@ -47,6 +51,8 @@ public class HomeFragment extends Fragment {
         mnews.setOnClickListener(this::card_btn_news);
         //starting Heath Units activity
         mheathunits.setOnClickListener(this::card_btn_health_units);
+
+        moreTips.setOnClickListener(this::btn_more_tips);
         return v;
     }
 
@@ -98,6 +104,12 @@ public class HomeFragment extends Fragment {
     public void  card_btn_health_units(View v) {
         startActivity(new Intent(getActivity(), HealthUnitsActivity.class));
     }
+
+    public void btn_more_tips(View v){
+        startActivity(new Intent(getActivity(), TipsActivity.class));
+    }
+
+
 
 
 }

@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.HealthUnitsActivity"></activity>
+        <activity android:name=".activities.TipsDetails"></activity>
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.SplashScreen">
@@ -24,6 +25,7 @@
         <activity
             android:name=".activities.NewsActivity"
             android:label="news" />
+        <activity android:name=".activities.TipsActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
