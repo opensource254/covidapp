@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new HomeFragment();
                 break;
             case R.id.navigation_alerts:
+
                 selectedFragment = new AlertFragment();
                 break;
             case R.id.navigation_situations:
