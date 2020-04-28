@@ -1,8 +1,10 @@
 package app.azim.opensource254.covidkenya.models;
 
+import java.util.List;
+
 public class NewsTweet {
       String timestamp;
-    String   img_urls;
+    List<String> img_urls;
     String    _id;
     String   text;
     String   username;
@@ -20,11 +22,11 @@ public class NewsTweet {
         this.timestamp = timestamp;
     }
 
-    public String getImg_urls() {
+    public List<String> getImg_urls() {
         return img_urls;
     }
 
-    public void setImg_urls(String img_urls) {
+    public void setImg_urls(List<String> img_urls) {
         this.img_urls = img_urls;
     }
 
@@ -72,7 +74,7 @@ public class NewsTweet {
     public String toString() {
         return "NewsTweet{" +
                 "timestamp='" + timestamp + '\'' +
-                ", img_urls='" + img_urls + '\'' +
+                ", img_urls=" + img_urls +
                 ", _id='" + _id + '\'' +
                 ", text='" + text + '\'' +
                 ", username='" + username + '\'' +
