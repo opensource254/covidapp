@@ -1,4 +1,4 @@
-package app.azim.opensource254.covidkenya.api;
+package app.azim.opensource254.covidkenya.api.publicdata;
 
 import java.util.concurrent.TimeUnit;
 
