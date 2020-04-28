@@ -3,6 +3,8 @@ package app.azim.opensource254.covidkenya.models;
 import androidx.annotation.NonNull;
 
 public class Tweet {
+
+
     private int tweet_id;
     private int id;
     private String head;
