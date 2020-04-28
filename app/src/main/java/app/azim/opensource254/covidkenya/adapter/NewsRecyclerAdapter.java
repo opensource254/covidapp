@@ -16,18 +16,17 @@ import java.util.Collection;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.models.NewsTweet;
 import app.azim.opensource254.covidkenya.models.Tweet;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder> implements Filterable {
 
     private static final String TAG = "NewsRecyclerAdapter";
-    public List<Tweet> newsList;
-    public List<Tweet> newsListAll;
+    public List<NewsTweet> newsList;
 
-    public NewsRecyclerAdapter(List<Tweet> newsList) {
+
+    public NewsRecyclerAdapter(List<NewsTweet> newsList) {
         this.newsList = newsList;
-        newsListAll = new ArrayList<>();
-        newsListAll.addAll(newsList);
     }
 
     @NonNull
@@ -41,11 +40,11 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Tweet tweet = newsList.get(position);
-        holder.txtTwitterHead.setText(tweet.getHead());
-        holder.txtTwitterHandle.setText(tweet.getHandle());
-        holder.txtTwitterBody.setText(tweet.getTweet());
-        holder.txtPostTime.setText(tweet.getTime());
+        final NewsTweet tweet = newsList.get(position);
+        holder.txtTwitterHead.setText(tweet.getScreen_name());
+        holder.txtTwitterHandle.setText(tweet.getUsername());
+        holder.txtTwitterBody.setText(tweet.getText());
+        holder.txtPostTime.setText(tweet.getTimestamp());
     }
 
     @Override
@@ -55,37 +54,37 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
     @Override
     public Filter getFilter() {
-        return filter;
+        return null;
     }
 
-    Filter filter = new Filter() {
-        // run on a background thread
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<Tweet> filteredList = new ArrayList<>();
-
-            if (constraint.toString().isEmpty()){
-                filteredList.addAll(newsListAll);
-            } else {
-                for (Tweet tweet: newsListAll){
-                    if (tweet.getTweet().toLowerCase().contains(constraint.toString().toLowerCase())){
-                        filteredList.add(tweet);
-                    } else {
-                    }
-                }
-            }
-            FilterResults filterResults = new FilterResults();
-            filterResults.values = filteredList;
-            return filterResults;
-        }
-        //runs on a UI thread
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            newsList.clear();
-            newsList.addAll((Collection<? extends Tweet>) results.values);
-            notifyDataSetChanged();
-        }
-    };
+//    Filter filter = new Filter() {
+//        // run on a background thread
+//        @Override
+//        protected FilterResults performFiltering(CharSequence constraint) {
+//            List<Tweet> filteredList = new ArrayList<>();
+//
+//            if (constraint.toString().isEmpty()){
+//                filteredList.addAll(newsListAll);
+//            } else {
+//                for (Tweet tweet: newsListAll){
+//                    if (tweet.getTweet().toLowerCase().contains(constraint.toString().toLowerCase())){
+//                        filteredList.add(tweet);
+//                    } else {
+//                    }
+//                }
+//            }
+//            FilterResults filterResults = new FilterResults();
+//            filterResults.values = filteredList;
+//            return filterResults;
+//        }
+//        //runs on a UI thread
+//        @Override
+//        protected void publishResults(CharSequence constraint, FilterResults results) {
+//            newsList.clear();
+//            newsList.addAll((Collection<? extends Tweet>) results.values);
+//            notifyDataSetChanged();
+//        }
+//    };
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

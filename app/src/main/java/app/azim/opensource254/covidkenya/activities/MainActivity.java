@@ -4,23 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.api.RetrofitServiceInstance;
-import app.azim.opensource254.covidkenya.models.Country;
-import app.azim.opensource254.covidkenya.models.DataStream;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -55,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new HomeFragment();
                 break;
             case R.id.navigation_alerts:
+
                 selectedFragment = new AlertFragment();
                 break;
             case R.id.navigation_situations:
