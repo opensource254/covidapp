@@ -5,22 +5,10 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.api.RetrofitServiceInstance;
-import app.azim.opensource254.covidkenya.models.Country;
-import app.azim.opensource254.covidkenya.models.DataStream;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 
 public class MainActivity extends AppCompatActivity {
