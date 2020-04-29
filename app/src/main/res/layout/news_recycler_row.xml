@@ -19,13 +19,18 @@
             android:id="@+id/txt_twitter_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
 
+=======
+            android:textColor="#000000"
+>>>>>>> 3315dbb15f7931a9a41b9246b7ebee4748e2d59d
             android:text="ministry of health kenya" />
         <TextView
             android:textColor="@color/colorAccent"
             android:id="@+id/txt_twitter_handle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#922529"
             android:text="ministry of health kenya" />
         <TextView
             android:id="@+id/txt_twitter_body"
@@ -36,7 +41,12 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_twitter_image"
             android:layout_width="wrap_content"
+<<<<<<< HEAD
             android:layout_height="180dp"
+=======
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+>>>>>>> 3315dbb15f7931a9a41b9246b7ebee4748e2d59d
             android:src="@drawable/imgplaceholder" />
 
         <TextView
@@ -45,7 +55,11 @@
             android:layout_marginBottom="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:textColor="@color/design_default_color_primary"
+=======
+            android:textSize="12dp"
+>>>>>>> 3315dbb15f7931a9a41b9246b7ebee4748e2d59d
             android:text="11/20/2020" />
 
     </LinearLayout>

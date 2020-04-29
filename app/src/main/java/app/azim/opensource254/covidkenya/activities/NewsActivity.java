@@ -97,46 +97,6 @@ public class NewsActivity extends AppCompatActivity {
             });
         }
 
-
-//    private List<Tweet> getNewsList(){
-//        Tweet tweet = new Tweet();
-//        tweet.setId(1);
-//        tweet.setHead("Ministry Of Health Kenya");
-//        tweet.setHandle("@mohkenya");
-//        tweet.setTweet("the government has …...");
-//        tweet.setTime("20/4/2020");
-//        tweet.setImage("https://tweet/image");
-//        newsList.add(tweet);
-//
-//        Tweet tweet1 = new Tweet();
-//        tweet1.setId(2);
-//        tweet1.setHead("Ministry Of Health Kenya");
-//        tweet1.setHandle("@mohkenya");
-//        tweet1.setTweet("the senate has …...");
-//        tweet1.setTime("20/4/2020");
-//        tweet1.setImage("https://tweet/image");
-//        newsList.add(tweet1);
-//
-//        Tweet tweet2 = new Tweet();
-//        tweet2.setId(3);
-//        tweet2.setHead("Ministry Of Health Kenya");
-//        tweet2.setHandle("@mohkenya");
-//        tweet2.setTweet("Parliament has …...");
-//        tweet2.setTime("20/4/2020");
-//        tweet2.setImage("https://tweet/image");
-//        newsList.add(tweet2);
-//
-//        Tweet tweet3 = new Tweet();
-//        tweet3.setId(4);
-//        tweet3.setHead("Ministry Of Health Kenya");
-//        tweet3.setHandle("@mohkenya");
-//        tweet3.setTweet("the Nairobi County Assembly has …...");
-//        tweet3.setTime("20/4/2020");
-//        tweet3.setImage("https://tweet/image");
-//        newsList.add(tweet3);
-//        return newsList;
-//    }
-
     //setting navigate up button
     @Override
     public boolean onSupportNavigateUp() {

@@ -1,5 +1,6 @@
 package app.azim.opensource254.covidkenya.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,22 +12,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.models.NewsTweet;
-import app.azim.opensource254.covidkenya.models.Tweet;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder> implements Filterable {
 
     private static final String TAG = "NewsRecyclerAdapter";
     public List<NewsTweet> newsList;
+    public List<NewsTweet> newsListAll;
 
 
     public NewsRecyclerAdapter(List<NewsTweet> newsList) {
         this.newsList = newsList;
+        newsListAll = new ArrayList<>();
+        newsListAll.addAll(newsList);
     }
 
     @NonNull
@@ -45,6 +50,13 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         holder.txtTwitterHandle.setText(tweet.getUsername());
         holder.txtTwitterBody.setText(tweet.getText());
         holder.txtPostTime.setText(tweet.getTimestamp());
+        if (!tweet.getImg_urls().isEmpty()) {
+            Picasso.get().load(tweet.getImg_urls().get(0))
+                    .into(holder.imgTwitterImage);
+        } else {
+            Picasso.get().load("https://pbs.twimg.com/profile_images/721965025859121152/342LCLJq_400x400.jpg")
+                    .into(holder.imgTwitterImage);
+        }
     }
 
     @Override
@@ -54,37 +66,35 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
     @Override
     public Filter getFilter() {
-        return null;
+        return filter;
     }
 
-//    Filter filter = new Filter() {
-//        // run on a background thread
-//        @Override
-//        protected FilterResults performFiltering(CharSequence constraint) {
-//            List<Tweet> filteredList = new ArrayList<>();
-//
-//            if (constraint.toString().isEmpty()){
-//                filteredList.addAll(newsListAll);
-//            } else {
-//                for (Tweet tweet: newsListAll){
-//                    if (tweet.getTweet().toLowerCase().contains(constraint.toString().toLowerCase())){
-//                        filteredList.add(tweet);
-//                    } else {
-//                    }
-//                }
-//            }
-//            FilterResults filterResults = new FilterResults();
-//            filterResults.values = filteredList;
-//            return filterResults;
-//        }
-//        //runs on a UI thread
-//        @Override
-//        protected void publishResults(CharSequence constraint, FilterResults results) {
-//            newsList.clear();
-//            newsList.addAll((Collection<? extends Tweet>) results.values);
-//            notifyDataSetChanged();
-//        }
-//    };
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<NewsTweet> filteredList = new ArrayList<>();
+
+            if (constraint.toString().isEmpty()){
+                filteredList.addAll(newsListAll);
+            } else {
+                for (NewsTweet tweet: newsListAll){
+                    if (tweet.getText().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(tweet);
+                    } else {
+                    }
+                }
+            }
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+            return filterResults;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            newsList.clear();
+            newsList.addAll((Collection<? extends NewsTweet>) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
