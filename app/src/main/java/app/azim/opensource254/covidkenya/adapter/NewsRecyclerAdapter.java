@@ -1,5 +1,6 @@
 package app.azim.opensource254.covidkenya.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -47,6 +50,13 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         holder.txtTwitterHandle.setText(tweet.getUsername());
         holder.txtTwitterBody.setText(tweet.getText());
         holder.txtPostTime.setText(tweet.getTimestamp());
+        if (!tweet.getImg_urls().isEmpty()) {
+            Picasso.get().load(tweet.getImg_urls().get(0))
+                    .into(holder.imgTwitterImage);
+        } else {
+            Picasso.get().load("https://pbs.twimg.com/profile_images/721965025859121152/342LCLJq_400x400.jpg")
+                    .into(holder.imgTwitterImage);
+        }
     }
 
     @Override
