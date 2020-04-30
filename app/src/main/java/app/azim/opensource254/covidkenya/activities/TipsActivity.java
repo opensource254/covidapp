@@ -71,7 +71,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // getSupportActionBar().setTitle("Health Units");
+        getSupportActionBar().setTitle("Official Tips");
 
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         recyclerView = findViewById(R.id.recycler_view);
