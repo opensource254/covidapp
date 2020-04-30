@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
+            android:gravity="right"
             android:textColor="@color/colorAccent"
             android:fontFamily="@font/baloo"
             android:id="@+id/txt_twitter_head"
@@ -28,8 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#922529"
+            android:textSize="20sp"
             android:text="ministry of health kenya" />
         <TextView
+            android:textSize="16sp"
             android:id="@+id/txt_twitter_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +42,7 @@
             android:layout_margin="2dp"
             android:src="@drawable/imgplaceholder"
             android:id="@+id/img_twitter_image"
-            android:background="@color/cardsColor"
+            android:background="@color/mainColor"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 
