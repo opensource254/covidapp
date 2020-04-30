@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,20 +31,21 @@ public class HomeFragment extends Fragment {
     private TextView cases, recovered, deaths;
     MaterialButton moreTips;
 
+
     //overriding oncreate view
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-        cases = v.findViewById(R.id.txt_cases);
-        recovered = v.findViewById(R.id.txt_recovered);
-        deaths = v.findViewById(R.id.txt_deaths);
+
         moreTips = v.findViewById(R.id.btn_talk_more_tips);
 
 
         fetchDataForCountry("kenya");
 
+        // ImageView icImg1 = v.findViewById(R.id.img_ic_what_is_corona);
+       // icImg1.setImageResource(R.drawable.ic_corona);
         CardView mnews = v.findViewById(R.id.card_news);
         CardView mheathunits = v.findViewById(R.id.card_health_units);
         //starting News activity
@@ -71,9 +73,9 @@ public class HomeFragment extends Fragment {
                         String totalRecoverd = totals.getString("recovered");
                         String totalDeaths  = totals.getString("deaths");
 
-                        cases.setText(totalReported);
-                        recovered.setText(totalRecoverd);
-                        deaths.setText(totalDeaths);
+                     //   cases.setText(totalReported);
+                    //    recovered.setText(totalRecoverd);
+                     //   deaths.setText(totalDeaths);
 
 
                     } catch (JSONException e) {
