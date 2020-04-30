@@ -14,4 +14,9 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
+    <style name="CustomBottomNavigationView"
+        parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="fontFamily">@font/baloo</item>
+    </style>
+
 </resources>
