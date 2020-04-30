@@ -51,7 +51,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         holder.txtTwitterBody.setText(tweet.getText());
         holder.txtPostTime.setText(tweet.getTimestamp());
         if (!tweet.getImg_urls().isEmpty()) {
-            Picasso.get().load(tweet.getImg_urls().get(0))
+            Picasso.get().load(tweet.getImg_urls().get(0)).fit().centerInside()
                     .into(holder.imgTwitterImage);
         } else {
             Picasso.get().load("https://pbs.twimg.com/profile_images/721965025859121152/342LCLJq_400x400.jpg")
