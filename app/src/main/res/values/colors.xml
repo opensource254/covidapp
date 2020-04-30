@@ -10,6 +10,6 @@
     <color name="caseColorLine">#F90000</color>
     <color name="recoveredColorLine">#428C56</color>
     <color name="deathsColorLine">#7D0019</color>
-    <color name="mainColor">#33C5DE</color>
+    <color name="mainColor">#EFEFEF</color>
     <color name="updates_text_color">#2B282E</color>
 </resources>
