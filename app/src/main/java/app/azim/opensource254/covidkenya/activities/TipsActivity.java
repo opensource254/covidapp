@@ -1,6 +1,7 @@
 package app.azim.opensource254.covidkenya.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +46,8 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
 
     public static final String EXTRA_IMAGE_URL= "imageUrl";
     public static final String EXTRA_DETAILS = "details";
+    //custom  top toolbar
+    private Toolbar mtoolbar;
 
 
     @Override
@@ -63,6 +66,12 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
 
+        //setting up main toolbar
+        mtoolbar = findViewById(R.id.tips_tool_bar);
+        setSupportActionBar(mtoolbar);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Official Tips");
 
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         recyclerView = findViewById(R.id.recycler_view);
@@ -135,4 +144,12 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         mShimmerViewContainer.stopShimmerAnimation();
         super.onPause();
     }
+
+    //setting navigate up button
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
 }

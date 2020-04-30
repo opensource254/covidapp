@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/rubik</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -12,6 +12,11 @@
     <!--    splash screen theme-->
     <style name="AppTheme.SplashScreen" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="CustomBottomNavigationView"
+        parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="fontFamily">@font/baloo</item>
     </style>
 
 </resources>

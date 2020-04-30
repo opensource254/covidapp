@@ -11,213 +11,98 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/layouthealth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_health_units"
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_margin="7dp"
+            android:backgroundTint="@color/textColorWhite"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
 
             <LinearLayout
-                android:id="@+id/layout_home_cases"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="7dp"
-                    android:focusable="true">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cases" />
-
-                        <TextView
-                            android:id="@+id/txt_cases"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/short_dash"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="7dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
-                        <TextView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/recovered" />
-
-                        <TextView
-                            android:id="@+id/txt_recovered"
-                            android:layout_width="wrap_content"
-
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/short_dash"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="7dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/deaths" />
-
-                        <TextView
-                            android:id="@+id/txt_deaths"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/short_dash"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_more_updates"
-                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:text="@string/more_updates"
-                android:textColor="#600288D1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_home_cases" />
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_healt_units" />
+
+                <TextView
+                    android:id="@+id/txt_health_units"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/health_units"
+                    android:textColor="@color/textColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_news"
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_margin="7dp"
+            android:backgroundTint="@color/textColorWhite"
+            android:clickable="true"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
-                android:id="@+id/layouthealth"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/btn_more_updates">
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_health_units"
-                    android:layout_width="120dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="7dp"
-                    android:backgroundTint="#600288D1"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:cardPreventCornerOverlap="false">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_news" />
 
 
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/ic_healt_units" />
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/textColor"
-                            android:id="@+id/txt_health_units"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/health_units"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_news"
-                    android:clickable="true"
-                    android:layout_width="120dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="7dp"
-                    android:backgroundTint="#600288D1"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/ic_news" />
-
-
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/textColor"
-                            android:id="@+id/txt_alerts"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/news"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-
-                </androidx.cardview.widget.CardView>
-
-
+                <TextView
+                    android:id="@+id/txt_alerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/news"
+                    android:textColor="@color/textColor"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
 
             <TextView
                 android:id="@+id/text_feeling_bad"
@@ -231,16 +116,21 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_talk_to_a_doctor"
                 style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:elevation="0dp"
                 android:text="@string/talk_to_a_doctor"
-                android:textColor="#600288D1"
+                android:fontFamily="@font/baloo"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_feeling_bad" />
+                app:layout_constraintTop_toBottomOf="@+id/text_feeling_bad"
+                app:rippleColor="@color/colorAccent"/>
 
             <androidx.appcompat.widget.LinearLayoutCompat
+                android:background="@color/mainColor"
                 android:id="@+id/layout_tips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -258,7 +148,7 @@
                         android:layout_width="100dp"
                         android:layout_height="110dp"
                         android:layout_margin="7dp"
-                        android:backgroundTint="#600288D1"
+                        android:backgroundTint="@color/textColorWhite"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:cardPreventCornerOverlap="false">
@@ -271,19 +161,22 @@
                             android:padding="5dp">
 
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_corona" />
+                               android:id="@+id/img_ic_what_is_corona"
+                                android:src="@drawable/ic_corona"
+                                />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/txt_what_is_corona"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/rubik"
                                 android:text="what is corona virus"
-                                android:textSize="15sp"
+                                android:textColor="@color/textColor"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -294,7 +187,7 @@
                         android:layout_width="100dp"
                         android:layout_height="110dp"
                         android:layout_margin="7dp"
-                        android:backgroundTint="#600288D1"
+                        android:backgroundTint="@color/textColorWhite"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:cardPreventCornerOverlap="false">
@@ -307,10 +200,11 @@
                             android:padding="5dp">
 
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_symptoms" />
+                                android:src="@drawable/ic_symptoms"
+                               />
 
                             <TextView
                                 android:textColor="@color/textColor"
@@ -319,7 +213,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="what are the symptoms"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -330,7 +224,7 @@
                         android:layout_width="100dp"
                         android:layout_height="110dp"
                         android:layout_margin="7dp"
-                        android:backgroundTint="#600288D1"
+                        android:backgroundTint="@color/textColorWhite"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp">
 
@@ -341,10 +235,12 @@
                             android:orientation="vertical"
                             android:padding="5dp">
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_transmission" />
+                                android:src="@drawable/ic_transmission"
+
+                                />
 
 
                             <TextView
@@ -354,7 +250,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="how its transmitted"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -375,7 +271,7 @@
                         android:layout_width="100dp"
                         android:layout_height="110dp"
                         android:layout_margin="7dp"
-                        android:backgroundTint="#600288D1"
+                        android:backgroundTint="@color/textColorWhite"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:cardPreventCornerOverlap="false">
@@ -388,10 +284,12 @@
                             android:padding="5dp">
 
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_washing_hands" />
+                                android:src="@drawable/ic_washing_hands"
+
+                                />
 
                             <TextView
                                 android:textColor="@color/textColor"
@@ -400,7 +298,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="how to prevent it"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -411,7 +309,7 @@
                         android:layout_width="100dp"
                         android:layout_height="110dp"
                         android:layout_margin="7dp"
-                        android:backgroundTint="#600288D1"
+                        android:backgroundTint="@color/textColorWhite"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:cardPreventCornerOverlap="false">
@@ -424,10 +322,12 @@
                             android:padding="5dp">
 
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_mask" />
+                                android:src="@drawable/ic_mask"
+
+                                />
 
                             <TextView
                                 android:textColor="@color/textColor"
@@ -436,7 +336,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="when to wear mask"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -447,7 +347,7 @@
                         android:layout_width="100dp"
                         android:layout_height="110dp"
                         android:layout_margin="7dp"
-                        android:backgroundTint="#600288D1"
+                        android:backgroundTint="@color/textColorWhite"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp">
 
@@ -458,10 +358,12 @@
                             android:orientation="vertical"
                             android:padding="5dp">
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_fake_news" />
+                                android:src="@drawable/ic_fake_news"
+
+                                />
 
 
                             <TextView
@@ -471,7 +373,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="fake news"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -483,15 +385,21 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/btn_talk_more_tips"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="wrap_content"
+                    style="?attr/materialButtonStyle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
                     android:elevation="0dp"
                     android:text="more tips"
-                    android:textColor="#600288D1"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/baloo"
+                    android:textColor="@color/colorAccent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/layout_sub_tips1" />
+                    app:layout_constraintTop_toBottomOf="@+id/layout_sub_tips1"
+                    app:rippleColor="@color/colorAccent"
+                    />
 
 
 
@@ -501,4 +409,3 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>

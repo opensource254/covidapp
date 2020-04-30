@@ -4,35 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="8dp">
 
-    <ImageView
 
+    <androidx.cardview.widget.CardView
         android:id="@+id/imageViewAvatar"
         android:layout_width="140dp"
-        android:layout_height="150dp"
-        android:layout_margin="8dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="140dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="115dp"
-        android:background="@color/colorPrimaryDark"
-        android:padding="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewAvatar2"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/imageViewAvatar2"
         android:layout_width="140dp"
-        android:layout_height="150dp"
-        android:layout_margin="8dp"
-        android:layout_marginStart="61dp"
+        android:layout_height="140dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="52dp"
-        android:background="@color/colorPrimaryDark"
-        android:padding="4dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="190dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

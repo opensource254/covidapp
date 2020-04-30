@@ -49,7 +49,7 @@ public class AlertFragment extends Fragment {
     private List<HealthUnit> getHealthUnitsList(){
         HealthUnit healthUnit = new HealthUnit();
         healthUnit.setOpen("open");
-        healthUnit.setTitle("Aga Khan");
+        healthUnit.setTitle("Alert one");
         healthUnit.setDescription("this hospital is located in...");
         healthUnitsList.add(healthUnit);
 

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textColor">#fff</color>
+    <color name="textColorWhite">#fff</color>
+    <color name="textColor">#5F5F5F</color>
     <color name="greyWhite">#BEBEBE</color>
+    <color name="cardsColor">#6084BAD7</color>
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#c7c7c7</color>
     <color name="colorAccent">#0097A7</color>
     <color name="caseColorLine">#F90000</color>
     <color name="recoveredColorLine">#428C56</color>
     <color name="deathsColorLine">#7D0019</color>
-    <color name="mainColor">#33C5DE</color>
+    <color name="mainColor">#EFEFEF</color>
     <color name="updates_text_color">#2B282E</color>
 </resources>
