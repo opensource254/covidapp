@@ -28,7 +28,6 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-    private TextView cases, recovered, deaths;
     MaterialButton moreTips;
 
 
@@ -42,7 +41,6 @@ public class HomeFragment extends Fragment {
         moreTips = v.findViewById(R.id.btn_talk_more_tips);
 
 
-        fetchDataForCountry("kenya");
 
         // ImageView icImg1 = v.findViewById(R.id.img_ic_what_is_corona);
        // icImg1.setImageResource(R.drawable.ic_corona);
@@ -57,44 +55,7 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
-    private void fetchDataForCountry(String country) {
-        RetrofitServiceInstance.getApiService().getCountryData().enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
 
-                if(response.isSuccessful()) {
-
-                    try {
-                        JSONObject countryData = new JSONObject(new Gson().toJson(response.body()));
-                        JSONObject todayRecords = countryData.getJSONObject("4/21/20");
-                        JSONObject totals = countryData.getJSONObject("total");
-
-                        String totalReported = totals.getString("reported");
-                        String totalRecoverd = totals.getString("recovered");
-                        String totalDeaths  = totals.getString("deaths");
-
-                     //   cases.setText(totalReported);
-                    //    recovered.setText(totalRecoverd);
-                     //   deaths.setText(totalDeaths);
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-                //progressDialog.dismiss();
-                Toast.makeText(getActivity(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                System.out.println("response  Error  "+ t.getMessage());
-            }
-        });
-    }
 
     //onclick  for news card
     public void  card_btn_news(View v) {
