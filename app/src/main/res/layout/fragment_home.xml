@@ -172,7 +172,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="what is corona virus"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -208,7 +208,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="what are the symptoms"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -243,7 +243,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="how its transmitted"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -289,7 +289,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="how to prevent it"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -325,7 +325,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="when to wear mask"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -360,7 +360,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="fake news"
-                                android:textSize="15sp"
+                                android:textSize="11sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
