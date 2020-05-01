@@ -5,16 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="8dp">
+    android:paddingBottom="8dp"
+    android:background="@color/mainColor">
 
     <LinearLayout
+        android:padding="8dp"
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary">
         <TextView
             android:gravity="right"
             android:textColor="@color/colorAccent"
@@ -29,20 +32,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#922529"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="ministry of health kenya" />
         <TextView
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:id="@+id/txt_twitter_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan to mtronic" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_margin="2dp"
+
             android:src="@drawable/imgplaceholder"
             android:id="@+id/img_twitter_image"
-            android:background="@color/mainColor"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 
