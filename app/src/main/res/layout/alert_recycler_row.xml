@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alert Head"
+            android:textColor="@color/design_default_color_error"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:maxLines="2"
             android:layout_toStartOf="@+id/text_view_open"
