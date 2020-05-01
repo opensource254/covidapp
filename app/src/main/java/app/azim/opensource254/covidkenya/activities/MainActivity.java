@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
     //handling bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
