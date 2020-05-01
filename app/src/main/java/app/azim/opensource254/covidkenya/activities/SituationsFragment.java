@@ -11,13 +11,13 @@ import androidx.fragment.app.Fragment;
 
 import app.azim.opensource254.covidkenya.R;
 
-public class UpdatesFragment extends Fragment {
+public class SituationsFragment extends Fragment {
 
 
     //overriding oncreate view
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_updates,container,false);
+        return inflater.inflate(R.layout.fragment_situation,container,false);
     }
 }
