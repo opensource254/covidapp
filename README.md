@@ -30,6 +30,19 @@
 ### Contributing
 Contributions are always welcome. Please make sure you read [Contributing notes](CONTRIBUTING.md) first.
 
+## Available API ENDPOINTS (api.covid19kenya.site)
+
+| Request | Endpoint              | Function                |
+| ------- | --------------------- | ----------------------- |
+| POST    | `/api/v1/tip`         | Create a new tip        |
+| GET     | `/api/v1/tips`        | Get all tips            |
+| GET     | `/api/v1/tip/:id`     | Get a tip               |
+| PUT     | `/api/v1/tip/:id`     | Update a tip            |
+| POST    | `/api/v1/alert`       | Create a new alert      | 
+| GET     | `/api/v1/alerts`      | Get all alerts          |
+| GET     | `/api/v1/alert/:id`   | Get an alert            |
+| PUT     | `/api/v1/alert/:id`   | Update an alert         |
+| GET     | `/api/v1/tweets`      | Get all tweets          |
 
 
 
