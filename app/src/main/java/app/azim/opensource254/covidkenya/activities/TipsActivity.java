@@ -39,16 +39,13 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
     private List<TipsData> tipsData;
     private ShimmerFrameLayout mShimmerViewContainer;
 
-
-
     private static final String URL_DATA = "https://api.github.com/search/users?q=language:android+location:kenya";
-    private static final String URL_DAT = "https://jsonplaceholder.typicode.com/photos";
+    private static final String URL_DAT = "https://api.covid19kenya.site/api/v1/tips";
 
     public static final String EXTRA_IMAGE_URL= "imageUrl";
     public static final String EXTRA_DETAILS = "details";
     //custom  top toolbar
     private Toolbar mtoolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,11 +80,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
     }
 
     private void loadURLs(){
-       // final ProgressDialog progressDialog = new ProgressDialog(this);
-      //  progressDialog.setMessage("Loading...");
-      //  progressDialog.show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_DATA, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_DAT, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 // Stopping Shimmer Effect's animation after data is loaded to ListView
@@ -96,12 +89,12 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
                 try {
                     RecyclerView recyclerView = findViewById(R.id.recycler_view);
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("items");
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jobj = jsonArray.getJSONObject(i);
-                        TipsData tipsData1 = new TipsData(jobj.getString("id"),jobj.getString("login")
-                                ,jobj.getString("html_url"),jobj.getString("avatar_url"));
+                        TipsData tipsData1 = new TipsData(jobj.getString("id"),jobj.getString("title")
+                                ,jobj.getString("detail"),jobj.getString("thumbnail"));
                         tipsData.add(tipsData1);
                     }
                     adapter = new TipsAdapter(tipsData, getApplicationContext());
@@ -121,6 +114,13 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
 
         RequestQueue requestQueue  = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    //setting navigate up button
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     @Override
@@ -143,13 +143,6 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
     protected void onPause() {
         mShimmerViewContainer.stopShimmerAnimation();
         super.onPause();
-    }
-
-    //setting navigate up button
-    @Override
-    public boolean onSupportNavigateUp() {
-        finish();
-        return true;
     }
 
 }

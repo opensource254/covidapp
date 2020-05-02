@@ -81,8 +81,6 @@ public class NewsActivity extends AppCompatActivity {
                         newsTweetList = response.body().getTweets();
                         recyclerAdapter = new NewsRecyclerAdapter(newsTweetList);
                         recyclerView.setAdapter(recyclerAdapter);
-
-
                     }
 
                 }
