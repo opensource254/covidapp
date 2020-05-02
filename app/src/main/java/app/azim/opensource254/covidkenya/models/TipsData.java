@@ -6,7 +6,6 @@ public class TipsData {
     private String detail;
     private String image;
 
-
     public String getTipId(){ return  tipId;}
 
     public String getTitle() {
