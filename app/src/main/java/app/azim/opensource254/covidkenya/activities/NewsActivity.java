@@ -68,7 +68,7 @@ public class NewsActivity extends AppCompatActivity {
         getNewsList();
 
         recyclerView = findViewById(R.id.news_recycler_view);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+
 
     }
 
