@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
@@ -12,22 +12,34 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.adapter.HealthUnitsRecyclerAdapter;
-import app.azim.opensource254.covidkenya.models.HealthUnit;
+import app.azim.opensource254.covidkenya.adapter.HealthUnitsAdapter;
+import app.azim.opensource254.covidkenya.api.privatedata.ServiceInstance;
+import app.azim.opensource254.covidkenya.api.privatedata.ApiServicesInterface;
+import app.azim.opensource254.covidkenya.models.HealthUnitModel;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class HealthUnitsActivity extends AppCompatActivity {
-    //custom  top toolbar
+
     private Toolbar mtoolbar;
+    private HealthUnitsAdapter mrecyclerAdapter;
+    private RecyclerView healthRecyclerView;
+    ApiServicesInterface mservice;
+    CompositeDisposable mcompositeDisposable = new CompositeDisposable();
+    List<HealthUnitModel> healthUnitModelList;
 
-    private RecyclerView recyclerView;
-    private HealthUnitsRecyclerAdapter recyclerAdapter;
-
-    List<HealthUnit> healthUnitsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,51 +57,56 @@ public class HealthUnitsActivity extends AppCompatActivity {
         }
 
 
-
         //setting up main toolbar
         mtoolbar = findViewById(R.id.health_units_tool_bar);
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Health Units");
-        healthUnitsList = new ArrayList<HealthUnit>();
 
-        getHealthUnitsList();
+        //init the api
+        Retrofit mretrofit = ServiceInstance.getRetrofitInstance();
+        mservice = mretrofit.create(ApiServicesInterface.class);
 
-        recyclerView = findViewById(R.id.health_units_recycler_view);
-        recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
-        recyclerView.setAdapter(recyclerAdapter);
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+//view
+        healthRecyclerView = findViewById(R.id.health_units_recycler_view);
+        //recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
+        healthRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        healthRecyclerView.setHasFixedSize(true);
+        healthUnitModelList = new ArrayList<>();
+
+
+        fetchData();
+
+
     }
 
-    private List<HealthUnit> getHealthUnitsList(){
-        HealthUnit healthUnit = new HealthUnit();
-        healthUnit.setOpen("open");
-        healthUnit.setTitle("Aga Khan");
-        healthUnit.setDescription("this hospital is located in...");
-        healthUnitsList.add(healthUnit);
+    private void fetchData() {
 
-        HealthUnit healthUnit1 = new HealthUnit();
-        healthUnit1.setOpen("open");
-        healthUnit1.setTitle("Kenyatta National Referral Hospital");
-        healthUnit1.setDescription("this hospital is located in...");
-        healthUnitsList.add(healthUnit1);
+        mcompositeDisposable.add(ServiceInstance.getApiService().getHealthUnits()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(data -> {
+                    mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList);
+                    healthRecyclerView.setAdapter(mrecyclerAdapter);
 
-        HealthUnit healthUnit2 = new HealthUnit();
-        healthUnit2.setOpen("closed");
-        healthUnit2.setTitle("Mbagathi Referral Hospital");
-        healthUnit2.setDescription("this hospital is located in...");
-        healthUnitsList.add(healthUnit2);
+                }, error -> {
+                    Toast.makeText(getApplicationContext(), "Error failed to fetch data network error", Toast.LENGTH_SHORT).show();
+                    // System.out.println("response  Error  "+ t.getMessage());
+                }));
 
-        HealthUnit healthUnit3 = new HealthUnit();
-        healthUnit3.setOpen("open");
-        healthUnit3.setTitle("Mama Lucy");
-        healthUnit3.setDescription("this hospital is located in...");
-        healthUnitsList.add(healthUnit3);
-        return healthUnitsList;
+
     }
+
+
+    @Override
+    public void onStop() {
+        mcompositeDisposable.clear();
+        super.onStop();
+
+    }
+
 
     //setting navigate up button
     @Override
@@ -111,7 +128,7 @@ public class HealthUnitsActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                recyclerAdapter.getFilter().filter(newText);
+                //adapter.getFilter().filter(newText);
                 return false;
             }
         });
