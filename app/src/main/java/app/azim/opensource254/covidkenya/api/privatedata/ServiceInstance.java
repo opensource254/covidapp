@@ -1,5 +1,7 @@
 package app.azim.opensource254.covidkenya.api.privatedata;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -10,7 +12,7 @@ public class ServiceInstance {
 
     private static Retrofit retrofit;
 
-    private static String baseUrl = "https://api.covid19kenya.site";
+
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
@@ -23,17 +25,18 @@ public class ServiceInstance {
 
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrl)
+                    .baseUrl("https://api.covid19kenya.site/api/v1/")
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
         }
 
         return retrofit;
     }
 
-    public static Services getApiService(){
-        return  getRetrofitInstance().create(Services.class);
+    public static ApiServicesInterface getApiService(){
+        return  getRetrofitInstance().create(ApiServicesInterface.class);
     }
 
 }
