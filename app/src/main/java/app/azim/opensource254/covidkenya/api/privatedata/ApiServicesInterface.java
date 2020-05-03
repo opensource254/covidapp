@@ -14,7 +14,7 @@ import retrofit2.http.GET;
 public interface ApiServicesInterface {
 
     @GET("tweets")
-    Call<TweetResponse> getNews();
+    Observable<TweetResponse> getNews();
 
     //using rx java
     @GET("hospitals")

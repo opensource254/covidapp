@@ -1,5 +1,6 @@
 package app.azim.opensource254.covidkenya.activities;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -29,6 +31,11 @@ import app.azim.opensource254.covidkenya.api.publicdata.RetrofitServiceInstance;
 import app.azim.opensource254.covidkenya.models.NewsTweet;
 import app.azim.opensource254.covidkenya.models.Tweet;
 import app.azim.opensource254.covidkenya.models.TweetResponse;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,13 +46,18 @@ public class NewsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private NewsRecyclerAdapter recyclerAdapter;
+    private ProgressBar progressBar;
 
     List<NewsTweet> newsTweetList;
+
+    CompositeDisposable disposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+
+        disposable = new CompositeDisposable();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //setting dark text and white ontouch bottom ui
@@ -68,30 +80,41 @@ public class NewsActivity extends AppCompatActivity {
         getNewsList();
 
         recyclerView = findViewById(R.id.news_recycler_view);
+        progressBar = findViewById(R.id.progress_bar);
 
 
     }
 
     private void getNewsList() {
-            ServiceInstance.getApiService().getNews().enqueue(new Callback<TweetResponse>() {
-                @Override
-                public void onResponse(Call<TweetResponse> call, Response<TweetResponse> response) {
+            ServiceInstance.getApiService().getNews()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<TweetResponse>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+                            disposable.add(d);
+                        }
 
-                    if(response.isSuccessful()) {
-                        newsTweetList = response.body().getTweets();
-                        recyclerAdapter = new NewsRecyclerAdapter(newsTweetList);
-                        recyclerView.setAdapter(recyclerAdapter);
-                    }
+                        @Override
+                        public void onNext(TweetResponse response) {
+                            newsTweetList = response.getTweets();
+                        }
 
-                }
+                        @Override
+                        public void onError(Throwable e) {
+                            Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
+                            System.out.println("response  Error  "+ e.getMessage());
+                        }
 
-                @Override
-                public void onFailure(Call<TweetResponse> call, Throwable t) {
-                    //progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                    System.out.println("response  Error  "+ t.getMessage());
-                }
-            });
+                        @Override
+                        public void onComplete() {
+                            recyclerAdapter = new NewsRecyclerAdapter(newsTweetList);
+                            recyclerView.setAdapter(recyclerAdapter);
+
+                            progressBar.setVisibility(View.GONE);
+                            recyclerView.setVisibility(View.VISIBLE);
+                        }
+                    });
         }
 
     //setting navigate up button
@@ -99,6 +122,12 @@ public class NewsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         finish();
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disposable.clear();
     }
 
     @Override
