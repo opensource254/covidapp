@@ -62,7 +62,7 @@ public class HealthUnitsActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Health Units");
+        getSupportActionBar().setTitle("Health Centers");
 
         //init the api
         Retrofit mretrofit = ServiceInstance.getRetrofitInstance();
