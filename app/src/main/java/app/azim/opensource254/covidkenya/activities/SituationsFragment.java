@@ -37,7 +37,7 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
 public class SituationsFragment extends Fragment  {
-
+    final static String mSituationsFragment = "SituationsFragment";
     private SituationRecyclerAdapter mrecyclerAdapter;
     private RecyclerView situationRecyclerView;
     private ProgressBar progressBar;
@@ -70,7 +70,7 @@ public class SituationsFragment extends Fragment  {
 
         situationModel = jsonData(response);
 
-        Log.d("cilo2", ""+situationModel.cases);
+        Log.d(mSituationsFragment, ""+situationModel.cases);
         situationModelList.add(situationModel);
 
         mrecyclerAdapter = new SituationRecyclerAdapter(situationModelList, getContext());
@@ -85,17 +85,11 @@ public class SituationsFragment extends Fragment  {
     private SituationModel jsonData(Object response){
         try {
             JSONObject countryData = new JSONObject(new Gson().toJson(response));
-            Log.d("cilo", ""+countryData);
+            Log.d(mSituationsFragment, ""+countryData);
 
             String updated = countryData.getString("updated");
-            Log.d("cilo", ""+updated);
-
             String cases = countryData.getString("cases");
-            Log.d("cilo", ""+cases);
-
             String todayCases = countryData.getString("todayCases");
-            Log.d("cilo", ""+updated+", "+cases+", "+todayCases);
-
             String deaths = countryData.getString("deaths");
             String todayDeaths = countryData.getString("todayDeaths");
             String recovered = countryData.getString("recovered");

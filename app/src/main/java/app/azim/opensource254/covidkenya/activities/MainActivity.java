@@ -28,6 +28,7 @@ import io.reactivex.schedulers.Schedulers;
 
 
 public class MainActivity extends AppCompatActivity {
+    final static String mMainActivity = "MainActivity";
     CompositeDisposable disposable;
     Bundle bundle;
 
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(Object response) {
-                        Log.d("cilo", ""+response);
+                        Log.d(mMainActivity, ""+response);
                         bundle.putSerializable("response", (Serializable) response);
                         situationsFragment.setArguments(bundle);
                     }
