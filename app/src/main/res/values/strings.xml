@@ -5,10 +5,10 @@
     <string name="recovered">Recovered</string>
     <string name="deaths">Deaths</string>
     <string name="more_updates">more updates</string>
-    <string name="health_units">Health Units</string>
+    <string name="health_units">Health Centers</string>
     <string name="news">News</string>
     <string name="feeling">How are you feeling?</string>
-    <string name="talk_to_a_doctor">talk to a doctor</string>
+    <string name="talk_to_a_doctor">talk to a Specialist</string>
     <string name="tips">Tips</string>
     <string name="what_is_corona_virus">What is corona virus?</string>
     <string name="official_updates">Official Updates</string>

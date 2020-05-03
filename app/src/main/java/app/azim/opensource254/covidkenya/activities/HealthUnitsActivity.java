@@ -62,14 +62,14 @@ public class HealthUnitsActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Health Units");
+        getSupportActionBar().setTitle("Health Centers");
 
         //init the api
         Retrofit mretrofit = ServiceInstance.getRetrofitInstance();
         mservice = mretrofit.create(ApiServicesInterface.class);
 
 
-//view
+        //view
         healthRecyclerView = findViewById(R.id.health_units_recycler_view);
         //recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
         healthRecyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -27,7 +27,6 @@ import java.util.List;
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.adapter.NewsRecyclerAdapter;
 import app.azim.opensource254.covidkenya.api.privatedata.ServiceInstance;
-import app.azim.opensource254.covidkenya.api.publicdata.RetrofitServiceInstance;
 import app.azim.opensource254.covidkenya.models.NewsTweet;
 import app.azim.opensource254.covidkenya.models.Tweet;
 import app.azim.opensource254.covidkenya.models.TweetResponse;

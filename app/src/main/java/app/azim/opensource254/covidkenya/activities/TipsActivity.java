@@ -39,7 +39,6 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
     private List<TipsData> tipsData;
     private ShimmerFrameLayout mShimmerViewContainer;
 
-    private static final String URL_DATA = "https://api.github.com/search/users?q=language:android+location:kenya";
     private static final String URL_DAT = "https://api.covid19kenya.site/api/v1/tips";
 
     public static final String EXTRA_IMAGE_URL= "imageUrl";
@@ -68,7 +67,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Official Tips");
+        getSupportActionBar().setTitle("Tips");
 
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         recyclerView = findViewById(R.id.recycler_view);
