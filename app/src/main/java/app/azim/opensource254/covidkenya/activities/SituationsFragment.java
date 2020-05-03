@@ -38,7 +38,6 @@ import retrofit2.Retrofit;
 
 public class SituationsFragment extends Fragment  {
 
-
     private SituationRecyclerAdapter mrecyclerAdapter;
     private RecyclerView situationRecyclerView;
     private ProgressBar progressBar;
@@ -58,23 +57,32 @@ public class SituationsFragment extends Fragment  {
         service =  mretrofit.create(ApiServices.class);
         disposable = new CompositeDisposable();
 
-         situationModelList = new ArrayList<>();
+        situationModelList = new ArrayList<>();
 
         //view
         progressBar = v.findViewById(R.id.progress_bar);
         situationRecyclerView = v.findViewById(R.id.recycler_situation);
-        //recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
-       // situationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
 
-        fetchData();
+        Object response = this.getArguments().getSerializable("response");
+
+        situationModel = jsonData(response);
+
+        Log.d("cilo2", ""+situationModel.cases);
+        situationModelList.add(situationModel);
+
+        mrecyclerAdapter = new SituationRecyclerAdapter(situationModelList, getContext());
+        situationRecyclerView.setAdapter(mrecyclerAdapter);
+
+        situationRecyclerView.setVisibility(View.VISIBLE);
+
+        //fetchData();
         return v;
     }
 
-
     private void fetchData() {
-
         CoronaNinjaInstance.getApiNinjaService().getCountryData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -91,26 +99,25 @@ public class SituationsFragment extends Fragment  {
 
                         Log.d("cilo2", ""+situationModel.cases);
                         situationModelList.add(situationModel);
-                        mrecyclerAdapter = new SituationRecyclerAdapter(situationModelList, getContext());
-                        situationRecyclerView.setAdapter(mrecyclerAdapter);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Toast.makeText(getContext(), "Error failed to fetch situation data network error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),
+                                "Error failed to fetch situation data network error",
+                                Toast.LENGTH_SHORT).show();
                         // System.out.println("response  Error  "+ e.getMessage());
                     }
 
                     @Override
                     public void onComplete() {
+                        mrecyclerAdapter = new SituationRecyclerAdapter(situationModelList, getContext());
+                        situationRecyclerView.setAdapter(mrecyclerAdapter);
+
                         situationRecyclerView.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.GONE);
                     }
                 });
-    }
-
-    private void displadata() {
-
     }
 
     private SituationModel jsonData(Object response){
@@ -128,7 +135,7 @@ public class SituationsFragment extends Fragment  {
             Log.d("cilo", ""+updated+", "+cases+", "+todayCases);
 
             String deaths = countryData.getString("deaths");
-            String todayDeaths = countryData.getString("todayCases");
+            String todayDeaths = countryData.getString("todayDeaths");
             String recovered = countryData.getString("recovered");
             String active = countryData.getString("active");
             String critical = countryData.getString("critical");
@@ -136,7 +143,6 @@ public class SituationsFragment extends Fragment  {
             String deathsPerOneMillion = countryData.getString("deathsPerOneMillion");
             String tests = countryData.getString("tests");
             String testsPerOneMillion = countryData.getString("testsPerOneMillion");
-
 
             situationModel =
                     new SituationModel(0,cases,todayCases,deaths,todayDeaths,
@@ -149,15 +155,9 @@ public class SituationsFragment extends Fragment  {
         return situationModel;
     }
 
-
-    @Override
-    public void onStop() {
-        disposable.clear();
-        super.onStop();
-
-    }
-
-
-
-
+//    @Override
+//    public void onStop() {
+//        disposable.clear();
+//        super.onStop();
+//    }
 }
