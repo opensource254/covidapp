@@ -11,7 +11,7 @@ public interface ApiServices {
 
 
     @GET("kenya")
-    Observable<SituationModel> getCountryData();
+    Observable<Object> getCountryData();
 
 
 }

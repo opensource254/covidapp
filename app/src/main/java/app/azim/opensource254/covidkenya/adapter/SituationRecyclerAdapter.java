@@ -46,7 +46,7 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
     @Override
     public void onBindViewHolder(@NonNull SituationView holder, int position) {
         holder.txt_total_cases.setText(String.valueOf(situationModelList.get(position).cases));
-        holder.txt_today_cases.setText(String.valueOf(situationModelList.get(position).todayCases));
+       // holder.txt_today_cases.setText(String.valueOf(situationModelList.get(position).todayCases));
         holder.txt_new_deaths.setText(String.valueOf(situationModelList.get(position).todayCases));
       //  holder.txt_deaths_.setText(String.valueOf(situationModelList.get(position).cases));
         holder.txt_total_recovered.setText(String.valueOf(situationModelList.get(position).recovered));
