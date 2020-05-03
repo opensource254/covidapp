@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    android:background="@color/mainColor">
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll_home"
         android:layout_width="match_parent"
@@ -13,7 +14,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -27,7 +30,9 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
         style="@style/CustomBottomNavigationView"
-        android:layout_width="wrap_content"
+        android:paddingEnd="2dp"
+        android:paddingStart="2dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@drawable/bottomnavround"
