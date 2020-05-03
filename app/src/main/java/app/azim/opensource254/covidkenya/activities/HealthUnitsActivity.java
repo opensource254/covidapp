@@ -69,7 +69,7 @@ public class HealthUnitsActivity extends AppCompatActivity {
         mservice = mretrofit.create(ApiServicesInterface.class);
 
 
-//view
+        //view
         healthRecyclerView = findViewById(R.id.health_units_recycler_view);
         //recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
         healthRecyclerView.setLayoutManager(new LinearLayoutManager(this));
