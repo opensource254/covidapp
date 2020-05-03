@@ -16,24 +16,13 @@ import app.azim.opensource254.covidkenya.adapter.viewHolders.SituationView;
 import app.azim.opensource254.covidkenya.models.SituationModel;
 
 public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView> {
-
-
-   // private static final String TAG = "SituationRecyclerAdapter";
     Context context;
     public List<SituationModel> situationModelList;
 
-
-
     public SituationRecyclerAdapter(List<SituationModel> situationModelList,Context context) {
-
         this.context = context;
         this.situationModelList = situationModelList;
-
-       // situationModelModelListAll = new ArrayList<>();
-       // situationModelModelListAll.addAll(situationModelList);
     }
-
-
 
     @NonNull
     @Override
@@ -46,19 +35,13 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
     @Override
     public void onBindViewHolder(@NonNull SituationView holder, int position) {
         holder.txt_total_cases.setText(String.valueOf(situationModelList.get(position).cases));
-        holder.txt_today_cases.setText(String.valueOf(situationModelList.get(position).todayCases));
-        holder.txt_new_deaths.setText(String.valueOf(situationModelList.get(position).todayCases));
+        holder.txt_new_cases.setText(String.valueOf(situationModelList.get(position).todayCases));
+        holder.txt_new_deaths.setText(String.valueOf(situationModelList.get(position).todayDeaths));
       //  holder.txt_deaths_.setText(String.valueOf(situationModelList.get(position).cases));
         holder.txt_total_recovered.setText(String.valueOf(situationModelList.get(position).recovered));
         holder.txt_active_cases.setText(String.valueOf(situationModelList.get(position).active));
         holder.txt_critical_cases.setText(String.valueOf(situationModelList.get(position).critical));
-
-
-
     }
-
-
-
 
     @Override
     public int getItemCount() {

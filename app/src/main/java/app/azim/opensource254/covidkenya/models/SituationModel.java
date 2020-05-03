@@ -31,7 +31,5 @@ public class SituationModel {
         this.deathsPerOneMillion = deathsPerOneMillion;
         this.tests = tests;
         this.testsPerOneMillion = testsPerOneMillion;
-
-
     }
 }
