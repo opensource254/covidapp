@@ -82,44 +82,6 @@ public class SituationsFragment extends Fragment  {
         return v;
     }
 
-    private void fetchData() {
-        CoronaNinjaInstance.getApiNinjaService().getCountryData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Object>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        disposable.add(d);
-                    }
-
-                    @Override
-                    public void onNext(Object response) {
-                        Log.d("cilo", ""+response);
-                        situationModel = jsonData(response);
-
-                        Log.d("cilo2", ""+situationModel.cases);
-                        situationModelList.add(situationModel);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(getContext(),
-                                "Error failed to fetch situation data network error",
-                                Toast.LENGTH_SHORT).show();
-                        // System.out.println("response  Error  "+ e.getMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        mrecyclerAdapter = new SituationRecyclerAdapter(situationModelList, getContext());
-                        situationRecyclerView.setAdapter(mrecyclerAdapter);
-
-                        situationRecyclerView.setVisibility(View.VISIBLE);
-                        progressBar.setVisibility(View.GONE);
-                    }
-                });
-    }
-
     private SituationModel jsonData(Object response){
         try {
             JSONObject countryData = new JSONObject(new Gson().toJson(response));
@@ -154,10 +116,4 @@ public class SituationsFragment extends Fragment  {
         }
         return situationModel;
     }
-
-//    @Override
-//    public void onStop() {
-//        disposable.clear();
-//        super.onStop();
-//    }
 }
