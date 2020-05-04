@@ -14,7 +14,7 @@ import app.azim.opensource254.covidkenya.R;
 
 public class HomeFragment extends Fragment {
 
-    MaterialButton moreTips;
+private    MaterialButton moreTips;
 
 
     //overriding oncreate view
