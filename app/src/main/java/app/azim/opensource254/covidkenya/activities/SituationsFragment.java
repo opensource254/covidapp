@@ -68,6 +68,7 @@ public class SituationsFragment extends Fragment  {
         situationRecyclerView.setHasFixedSize(true);
 
         try{
+            assert this.getArguments() != null;
             response = this.getArguments().getSerializable("response");
         }catch (Exception e){
             Log.d(mSituationsFragment, "Bundle error: "+e.getMessage());

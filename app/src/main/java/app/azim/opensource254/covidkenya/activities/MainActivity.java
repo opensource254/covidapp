@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = situationsFragment;
 
         }
+        assert selectedFragment != null;
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 selectedFragment).commit();
         return  true;
