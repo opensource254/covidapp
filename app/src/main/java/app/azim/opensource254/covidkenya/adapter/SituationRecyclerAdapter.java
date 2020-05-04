@@ -19,9 +19,10 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
     Context context;
     public List<SituationModel> situationModelList;
 
-    public SituationRecyclerAdapter(List<SituationModel> situationModelList,Context context) {
+    public SituationRecyclerAdapter(List<SituationModel> situationModelList, Context context) {
         this.context = context;
         this.situationModelList = situationModelList;
+
     }
 
     @NonNull
@@ -34,13 +35,26 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
 
     @Override
     public void onBindViewHolder(@NonNull SituationView holder, int position) {
-        holder.txt_total_cases.setText(String.valueOf(situationModelList.get(position).cases));
-        holder.txt_new_cases.setText(String.valueOf(situationModelList.get(position).todayCases));
-        holder.txt_new_deaths.setText(String.valueOf(situationModelList.get(position).todayDeaths));
-      //  holder.txt_deaths_.setText(String.valueOf(situationModelList.get(position).cases));
-        holder.txt_total_recovered.setText(String.valueOf(situationModelList.get(position).recovered));
-        holder.txt_active_cases.setText(String.valueOf(situationModelList.get(position).active));
-        holder.txt_critical_cases.setText(String.valueOf(situationModelList.get(position).critical));
+
+        //removing decimals
+        String mcases = (String.valueOf(situationModelList.get(position).cases)).split("\\.")[0];
+        String mtodayCases = (String.valueOf(situationModelList.get(position).todayCases)).split("\\.")[0];
+        String mtodayDeaths = (String.valueOf(situationModelList.get(position).todayDeaths)).split("\\.")[0];
+        String mrecovered = (String.valueOf(situationModelList.get(position).recovered)).split("\\.")[0];
+        String mactive = (String.valueOf(situationModelList.get(position).active)).split("\\.")[0];
+        String mcritical = (String.valueOf(situationModelList.get(position).critical)).split("\\.")[0];
+
+
+        //setting values to an holder
+        holder.txt_total_cases.setText(mcases);
+        holder.txt_new_cases.setText(mtodayCases);
+        holder.txt_new_deaths.setText(mtodayDeaths);
+        //  holder.txt_deaths_.setText(String.valueOf(situationModelList.get(position).cases));
+        holder.txt_total_recovered.setText(mrecovered);
+        holder.txt_active_cases.setText(mactive);
+        holder.txt_critical_cases.setText(mcritical);
+
+
     }
 
     @Override
