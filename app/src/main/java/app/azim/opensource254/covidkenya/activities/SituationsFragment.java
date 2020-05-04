@@ -38,6 +38,7 @@ import retrofit2.Retrofit;
 
 public class SituationsFragment extends Fragment  {
     final static String mSituationsFragment = "SituationsFragment";
+
     private SituationRecyclerAdapter mrecyclerAdapter;
     private RecyclerView situationRecyclerView;
     private ProgressBar progressBar;
