@@ -45,6 +45,7 @@ public class SituationsFragment extends Fragment  {
     CompositeDisposable disposable;
     List<SituationModel> situationModelList;
     SituationModel situationModel;
+    Object response;
 
     //overriding oncreate view
     @Nullable
@@ -66,7 +67,12 @@ public class SituationsFragment extends Fragment  {
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
 
-        Object response = this.getArguments().getSerializable("response");
+        try{
+            response = this.getArguments().getSerializable("response");
+        }catch (Exception e){
+            Log.d(mSituationsFragment, "Bundle error: "+e.getMessage());
+            response = null;
+        }
         situationModel = jsonData(response);
 
         Log.d(mSituationsFragment, ""+situationModel.cases);

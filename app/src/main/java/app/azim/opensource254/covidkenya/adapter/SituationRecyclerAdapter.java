@@ -22,7 +22,6 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
     public SituationRecyclerAdapter(List<SituationModel> situationModelList, Context context) {
         this.context = context;
         this.situationModelList = situationModelList;
-
     }
 
     @NonNull
@@ -44,7 +43,6 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
         String mactive = (String.valueOf(situationModelList.get(position).active)).split("\\.")[0];
         String mcritical = (String.valueOf(situationModelList.get(position).critical)).split("\\.")[0];
 
-
         //setting values to an holder
         holder.txt_total_cases.setText(mcases);
         holder.txt_new_cases.setText(mtodayCases);
@@ -53,8 +51,6 @@ public class SituationRecyclerAdapter extends RecyclerView.Adapter<SituationView
         holder.txt_total_recovered.setText(mrecovered);
         holder.txt_active_cases.setText(mactive);
         holder.txt_critical_cases.setText(mcritical);
-
-
     }
 
     @Override
