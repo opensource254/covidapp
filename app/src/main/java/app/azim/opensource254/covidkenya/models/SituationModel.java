@@ -14,6 +14,8 @@ public class SituationModel {
     public String tests;
     public String testsPerOneMillion;
 
+    public SituationModel() {
+    }
 
     public SituationModel(int id, String cases, String
             todayCases, String deaths, String todayDeaths, String recovered,

@@ -45,6 +45,7 @@ public class SituationsFragment extends Fragment  {
     CompositeDisposable disposable;
     List<SituationModel> situationModelList;
     SituationModel situationModel;
+    Object response;
 
     //overriding oncreate view
     @Nullable
@@ -66,8 +67,12 @@ public class SituationsFragment extends Fragment  {
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
 
-        Object response = this.getArguments().getSerializable("response");
-
+        try{
+            response = this.getArguments().getSerializable("response");
+        }catch (Exception e){
+            Log.d(mSituationsFragment, "Bundle error: "+e.getMessage());
+            response = null;
+        }
         situationModel = jsonData(response);
 
         Log.d(mSituationsFragment, ""+situationModel.cases);
@@ -78,11 +83,11 @@ public class SituationsFragment extends Fragment  {
 
         situationRecyclerView.setVisibility(View.VISIBLE);
 
-        //fetchData();
         return v;
     }
 
     private SituationModel jsonData(Object response){
+        situationModel = new SituationModel();
         try {
             JSONObject countryData = new JSONObject(new Gson().toJson(response));
             Log.d(mSituationsFragment, ""+countryData);
@@ -106,7 +111,7 @@ public class SituationsFragment extends Fragment  {
                             deathsPerOneMillion,tests,testsPerOneMillion);
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.d(mSituationsFragment, "Json error: "+e.getMessage());
         }
         return situationModel;
     }
