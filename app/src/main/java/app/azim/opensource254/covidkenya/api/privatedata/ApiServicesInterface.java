@@ -19,7 +19,7 @@ public interface ApiServicesInterface {
 
     //using rx java
     @GET("hospitals")
-    Observable<HealthUnitModel> getHealthUnits();
+    Observable<Object> getHealthUnits();
 
 
 }
