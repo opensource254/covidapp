@@ -71,7 +71,7 @@
                     android:textAlignment="center"
                     android:textSize="12sp"
                     android:padding="8dp"
-                    android:text="Tap icon to enable Tracing mode check  settings to learn more"
+                    android:text="Tap icon to enable Tracing mode check  more tab to learn more"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/guideline3" />
