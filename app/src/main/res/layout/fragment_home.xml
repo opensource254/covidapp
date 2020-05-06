@@ -49,12 +49,32 @@
                         android:id="@+id/btn_bluesafe"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:tint="@color/colorAccent"
                         android:layout_centerInParent="true"
                         android:contentDescription="blue safe button"
-                        android:src="@drawable/ic_smartphone_black_24dp" />
+                        android:src="@drawable/ic_smartphone_black_24dp"
+                        android:tint="@color/colorAccent" />
 
                 </com.skyfishjy.library.RippleBackground>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_begin="75dp"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:padding="8dp"
+                    android:text="Tap icon to enable Tracing mode check  settings to learn more"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
