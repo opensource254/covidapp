@@ -3,6 +3,7 @@ package app.azim.opensource254.covidkenya.adapter.viewHolders;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.models.NewsTweet;
@@ -10,7 +11,7 @@ import app.azim.opensource254.covidkenya.models.NewsTweet;
 public class HealthUnitsView extends RecyclerView.ViewHolder {
     public TextView txt_title, txt_lat, txt_lon, txt_open, txt_description;
 
-    public HealthUnitsView(View itemview) {
+    public HealthUnitsView(@NonNull View itemview) {
 
         super(itemview);
 

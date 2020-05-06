@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    //thread moved to main activity for perfomance
+    //fetching country fragment situation data
     private void fetchDataForCountry() {
         CoronaNinjaInstance.getApiNinjaService().getCountryData()
                 .subscribeOn(Schedulers.io())
