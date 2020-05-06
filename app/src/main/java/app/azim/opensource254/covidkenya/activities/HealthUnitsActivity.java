@@ -9,11 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,23 +30,34 @@ import app.azim.opensource254.covidkenya.api.privatedata.ServiceInstance;
 import app.azim.opensource254.covidkenya.api.privatedata.ApiServicesInterface;
 import app.azim.opensource254.covidkenya.models.HealthUnitModel;
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class HealthUnitsActivity extends AppCompatActivity {
+import static app.azim.opensource254.covidkenya.activities.MainActivity.mMainActivity;
 
+public class HealthUnitsActivity extends AppCompatActivity {
+   final  static  String mHealthunitsActivity = "HealthUnitsActivity";
     private Toolbar mtoolbar;
     private HealthUnitsAdapter mrecyclerAdapter;
     private RecyclerView healthRecyclerView;
     ApiServicesInterface mservice;
-    CompositeDisposable mcompositeDisposable = new CompositeDisposable();
+    CompositeDisposable disposable;
     List<HealthUnitModel> healthUnitModelList;
+    HealthUnitModel healthUnitModel;
+    Object response;
 
+    Bundle bundle = new Bundle();
+
+    //Bundle bundle;
+
+    HealthUnitsActivity healthUnitsActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,45 +85,99 @@ public class HealthUnitsActivity extends AppCompatActivity {
         //init the api
         Retrofit mretrofit = ServiceInstance.getRetrofitInstance();
         mservice = mretrofit.create(ApiServicesInterface.class);
+        disposable = new CompositeDisposable();
+        healthUnitModelList = new ArrayList<>();
 
 
         //view
         healthRecyclerView = findViewById(R.id.health_units_recycler_view);
-        //recyclerAdapter = new HealthUnitsRecyclerAdapter(healthUnitsList);
         healthRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         healthRecyclerView.setHasFixedSize(true);
-        healthUnitModelList = new ArrayList<>();
 
 
-        fetchData();
+        try {
+
+        response = this.bundle.getSerializable("response");
+        } catch (Exception e) {
+            Log.d(mHealthunitsActivity, "Bundle error: " + e.getMessage());
+            response = null;
+        }
+        healthUnitModel = jsonData(response);
+
+      //  Log.d(mHealthunitsActivity, "" + HealthUnitModel.title);
+        healthUnitModelList.add(healthUnitModel);
+
+        mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList, this);
+        healthRecyclerView.setAdapter(mrecyclerAdapter);
+        healthRecyclerView.setVisibility(View.VISIBLE);
+
+        fetchDataForHealth();
+
+        healthUnitsActivity = new HealthUnitsActivity();
+
 
 
     }
 
-    private void fetchData() {
+    private HealthUnitModel jsonData(Object response) {
+        healthUnitModel = new HealthUnitModel();
+        try {
+            JSONObject healthData = new JSONObject(new Gson().toJson(response));
+            Log.d(mHealthunitsActivity, "" + healthData);
 
-        mcompositeDisposable.add(ServiceInstance.getApiService().getHealthUnits()
+           // int unit_id = healthData.getInt("unit_id");
+            int id = healthData.getInt("id");
+            String title = healthData.getString("title");
+            String lat = healthData.getString("lat");
+            String lon = healthData.getString("lon");
+            String open = healthData.getString("open");
+            String description = healthData.getString("description");
+
+
+
+            healthUnitModel =
+                    new HealthUnitModel(0,id,title, lat, lon, open,
+                            description);
+
+        } catch (JSONException e) {
+            Log.d(mHealthunitsActivity, "Json error: " + e.getMessage());
+        }
+        return healthUnitModel;
+    }
+
+
+    private void fetchDataForHealth() {
+        ServiceInstance.getApiService().getHealthUnits()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(data -> {
-                    mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList);
-                    healthRecyclerView.setAdapter(mrecyclerAdapter);
+                .subscribe(new Observer<Object>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        disposable.add(d);
+                        //progressBar.setVisibility(View.VISIBLE);
+                    }
 
-                }, error -> {
-                    Toast.makeText(getApplicationContext(), "Error failed to fetch data network error", Toast.LENGTH_SHORT).show();
-                    // System.out.println("response  Error  "+ t.getMessage());
-                }));
+                    @Override
+                    public void onNext(Object response) {
+                        Log.d(mHealthunitsActivity, ""+response);
+                        bundle.putSerializable("response", (Serializable) response);
 
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
+                        System.out.println("response  Error  "+ e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        // progressBar.setVisibility(View.GONE);
+                    }
+                });
     }
 
 
-    @Override
-    public void onStop() {
-        mcompositeDisposable.clear();
-        super.onStop();
-
-    }
 
 
     //setting navigate up button
@@ -128,7 +200,7 @@ public class HealthUnitsActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //adapter.getFilter().filter(newText);
+                //mrecyclerAdapter.getFilter().filter(newText);
                 return false;
             }
         });
