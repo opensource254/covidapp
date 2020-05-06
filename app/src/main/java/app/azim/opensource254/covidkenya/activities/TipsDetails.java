@@ -24,7 +24,7 @@ public class TipsDetails extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String details = intent.getStringExtra(EXTRA_IMAGE_URL);
+        String details = intent.getStringExtra(EXTRA_DETAILS);
         String image = intent.getStringExtra(EXTRA_IMAGE_URL);
 
         TextView text = findViewById(R.id.text_tips_title);
