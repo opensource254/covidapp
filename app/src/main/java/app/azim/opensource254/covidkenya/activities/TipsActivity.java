@@ -44,6 +44,8 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
 
     public static final String EXTRA_IMAGE_URL= "imageUrl";
     public static final String EXTRA_DETAILS = "details";
+    public static final String EXTRA_TITLE = "title";
+
     //custom  top toolbar
     private Toolbar mtoolbar;
 
@@ -129,6 +131,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         TipsData clickedItem = tipsData.get(position);
         detailIntent.putExtra(EXTRA_IMAGE_URL, clickedItem.getImage());
         detailIntent.putExtra(EXTRA_DETAILS, clickedItem.getDetail());
+        detailIntent.putExtra(EXTRA_TITLE, clickedItem.getTitle());
 
         startActivity(detailIntent);
     }
