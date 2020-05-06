@@ -93,6 +93,41 @@ public class HealthUnitsActivity extends AppCompatActivity {
         fetchDataForHealth();
     }
 
+    private void fetchDataForHealth() {
+        ServiceInstance.getApiService().getHealthUnits()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Object>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        disposable.add(d);
+                    }
+
+                    @Override
+                    public void onNext(Object response) {
+                        Log.d(mHealthunitsActivity, ""+response);
+                        healthUnitModel = jsonData(response);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
+                        System.out.println("response  Error  "+ e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        healthUnitModelList.add(healthUnitModel);
+
+                        mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList, getApplicationContext());
+                        healthRecyclerView.setAdapter(mrecyclerAdapter);
+
+                        healthRecyclerView.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
+    }
+
     private HealthUnitModel jsonData(Object response) {
         healthUnitModel = new HealthUnitModel();
         try {
@@ -117,40 +152,6 @@ public class HealthUnitsActivity extends AppCompatActivity {
             Log.d(mHealthunitsActivity, "Json error: " + e.getMessage());
         }
         return healthUnitModel;
-    }
-
-    private void fetchDataForHealth() {
-        ServiceInstance.getApiService().getHealthUnits()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Object>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        disposable.add(d);
-                    }
-
-                    @Override
-                    public void onNext(Object response) {
-                        Log.d(mHealthunitsActivity, ""+response);
-                        healthUnitModel = jsonData(response);
-                        healthUnitModelList.add(healthUnitModel);
-
-                        mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList, getApplicationContext());
-                        healthRecyclerView.setAdapter(mrecyclerAdapter);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                        System.out.println("response  Error  "+ e.getMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        healthRecyclerView.setVisibility(View.VISIBLE);
-                        progressBar.setVisibility(View.GONE);
-                    }
-                });
     }
 
     @Override

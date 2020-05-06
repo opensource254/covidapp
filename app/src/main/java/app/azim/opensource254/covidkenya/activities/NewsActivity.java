@@ -74,13 +74,13 @@ public class NewsActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        newsTweetList = new ArrayList<>();
-
-        getNewsList();
 
         recyclerView = findViewById(R.id.news_recycler_view);
         progressBar = findViewById(R.id.progress_bar);
 
+        newsTweetList = new ArrayList<>();
+
+        getNewsList();
 
     }
 
