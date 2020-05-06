@@ -13,10 +13,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,17 +49,11 @@ public class HealthUnitsActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
     private HealthUnitsAdapter mrecyclerAdapter;
     private RecyclerView healthRecyclerView;
+    private ProgressBar progressBar;
     ApiServicesInterface mservice;
     CompositeDisposable disposable;
     List<HealthUnitModel> healthUnitModelList;
     HealthUnitModel healthUnitModel;
-    Object response;
-
-    Bundle bundle = new Bundle();
-
-    //Bundle bundle;
-
-    HealthUnitsActivity healthUnitsActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +70,6 @@ public class HealthUnitsActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
 
-
         //setting up main toolbar
         mtoolbar = findViewById(R.id.health_units_tool_bar);
         setSupportActionBar(mtoolbar);
@@ -88,52 +83,66 @@ public class HealthUnitsActivity extends AppCompatActivity {
         disposable = new CompositeDisposable();
         healthUnitModelList = new ArrayList<>();
 
-
         //view
+        progressBar = findViewById(R.id.progress_bar);
+
         healthRecyclerView = findViewById(R.id.health_units_recycler_view);
         healthRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         healthRecyclerView.setHasFixedSize(true);
 
-
-        try {
-
-        response = this.bundle.getSerializable("response");
-        } catch (Exception e) {
-            Log.d(mHealthunitsActivity, "Bundle error: " + e.getMessage());
-            response = null;
-        }
-        healthUnitModel = jsonData(response);
-
-      //  Log.d(mHealthunitsActivity, "" + HealthUnitModel.title);
-        healthUnitModelList.add(healthUnitModel);
-
-        mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList, this);
-        healthRecyclerView.setAdapter(mrecyclerAdapter);
-        healthRecyclerView.setVisibility(View.VISIBLE);
-
         fetchDataForHealth();
+    }
 
-        healthUnitsActivity = new HealthUnitsActivity();
+    private void fetchDataForHealth() {
+        ServiceInstance.getApiService().getHealthUnits()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Object>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        disposable.add(d);
+                    }
 
+                    @Override
+                    public void onNext(Object response) {
+                        Log.d(mHealthunitsActivity, ""+response);
+                        healthUnitModel = jsonData(response);
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
+                        System.out.println("response  Error  "+ e.getMessage());
+                    }
 
+                    @Override
+                    public void onComplete() {
+                        healthUnitModelList.add(healthUnitModel);
+
+                        mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList, getApplicationContext());
+                        healthRecyclerView.setAdapter(mrecyclerAdapter);
+
+                        healthRecyclerView.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
     }
 
     private HealthUnitModel jsonData(Object response) {
         healthUnitModel = new HealthUnitModel();
         try {
-            JSONObject healthData = new JSONObject(new Gson().toJson(response));
+            JSONObject healthResponse = new JSONObject(new Gson().toJson(response));
+            JSONArray healthDataArray = healthResponse.getJSONArray("data");
+            Log.d(mHealthunitsActivity, "" + healthDataArray);
+            JSONObject healthData = healthDataArray.getJSONObject(0);
             Log.d(mHealthunitsActivity, "" + healthData);
 
-           // int unit_id = healthData.getInt("unit_id");
             int id = healthData.getInt("id");
             String title = healthData.getString("title");
             String lat = healthData.getString("lat");
             String lon = healthData.getString("lon");
             String open = healthData.getString("open");
             String description = healthData.getString("description");
-
-
 
             healthUnitModel =
                     new HealthUnitModel(0,id,title, lat, lon, open,
@@ -145,40 +154,11 @@ public class HealthUnitsActivity extends AppCompatActivity {
         return healthUnitModel;
     }
 
-
-    private void fetchDataForHealth() {
-        ServiceInstance.getApiService().getHealthUnits()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Object>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        disposable.add(d);
-                        //progressBar.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onNext(Object response) {
-                        Log.d(mHealthunitsActivity, ""+response);
-                        bundle.putSerializable("response", (Serializable) response);
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                        System.out.println("response  Error  "+ e.getMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        // progressBar.setVisibility(View.GONE);
-                    }
-                });
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disposable.clear();
     }
-
-
-
 
     //setting navigate up button
     @Override

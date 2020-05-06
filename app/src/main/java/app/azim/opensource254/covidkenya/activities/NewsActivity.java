@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -40,12 +42,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NewsActivity extends AppCompatActivity {
+    final static String mNewsActivity = "NewsActivity";
+
     //custom  top toolbar
     private Toolbar mtoolbar;
 
     private RecyclerView recyclerView;
     private NewsRecyclerAdapter recyclerAdapter;
     private ProgressBar progressBar;
+    private TextView errorTv;
 
     List<NewsTweet> newsTweetList;
 
@@ -74,14 +79,14 @@ public class NewsActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        newsTweetList = new ArrayList<>();
-
-        getNewsList();
 
         recyclerView = findViewById(R.id.news_recycler_view);
         progressBar = findViewById(R.id.progress_bar);
+        errorTv = findViewById(R.id.error_tv);
 
+        newsTweetList = new ArrayList<>();
 
+        getNewsList();
     }
 
     private void getNewsList() {
@@ -96,25 +101,42 @@ public class NewsActivity extends AppCompatActivity {
 
                         @Override
                         public void onNext(TweetResponse response) {
+                            Log.d(mNewsActivity, "news: "+response);
                             newsTweetList = response.getTweets();
                         }
 
                         @Override
                         public void onError(Throwable e) {
                             Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                            System.out.println("response  Error  "+ e.getMessage());
+                            errorTv.setText("Process failed");
+                            errorTv.setVisibility(View.VISIBLE);
                         }
 
                         @Override
                         public void onComplete() {
-                            recyclerAdapter = new NewsRecyclerAdapter(newsTweetList);
-                            recyclerView.setAdapter(recyclerAdapter);
-
-                            progressBar.setVisibility(View.GONE);
-                            recyclerView.setVisibility(View.VISIBLE);
+                            newsResponse();
                         }
                     });
+    }
+
+    private void newsResponse(){
+        try{
+            if(newsTweetList.size() > 0){
+                recyclerAdapter = new NewsRecyclerAdapter(newsTweetList);
+                recyclerView.setAdapter(recyclerAdapter);
+                errorTv.setVisibility(View.GONE);
+            }else{
+                errorTv.setText("Sorry, no data was fetched");
+                errorTv.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+            }
+            progressBar.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }catch(Exception e){
+            Log.d(mNewsActivity, "error: "+e.getMessage());
+            errorTv.setText("Sorry, there was an error");
         }
+    }
 
     //setting navigate up button
     @Override
