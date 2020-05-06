@@ -15,18 +15,14 @@ import app.azim.opensource254.covidkenya.adapter.viewHolders.HealthUnitsView;
 import app.azim.opensource254.covidkenya.models.HealthUnitModel;
 
 public class HealthUnitsAdapter extends RecyclerView.Adapter<HealthUnitsView> {
-
-
-    private static final String TAG = "HealthUnitsAdapter";
+    Context context;
     public List<HealthUnitModel> healthUnitModelList;
-    public List<HealthUnitModel> healthUnitModelListAll;
 
 
-    public HealthUnitsAdapter(List<HealthUnitModel> healthUnitModelList) {
-
+    public HealthUnitsAdapter(List<HealthUnitModel> healthUnitModelList, Context context) {
+        this.context = context;
         this.healthUnitModelList = healthUnitModelList;
-        healthUnitModelListAll = new ArrayList<>();
-        healthUnitModelListAll.addAll(healthUnitModelList);
+
     }
 
 
