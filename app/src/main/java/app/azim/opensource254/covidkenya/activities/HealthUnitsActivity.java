@@ -106,7 +106,7 @@ public class HealthUnitsActivity extends AppCompatActivity {
                     @Override
                     public void onNext(Object response) {
                         Log.d(mHealthunitsActivity, ""+response);
-                        healthUnitModel = jsonData(response);
+                        healthUnitModelList = jsonData(response);
                     }
 
                     @Override
@@ -117,8 +117,6 @@ public class HealthUnitsActivity extends AppCompatActivity {
 
                     @Override
                     public void onComplete() {
-                        healthUnitModelList.add(healthUnitModel);
-
                         mrecyclerAdapter = new HealthUnitsAdapter(healthUnitModelList, getApplicationContext());
                         healthRecyclerView.setAdapter(mrecyclerAdapter);
 
@@ -128,30 +126,36 @@ public class HealthUnitsActivity extends AppCompatActivity {
                 });
     }
 
-    private HealthUnitModel jsonData(Object response) {
+    private ArrayList<HealthUnitModel> jsonData(Object response) {
         healthUnitModel = new HealthUnitModel();
         try {
             JSONObject healthResponse = new JSONObject(new Gson().toJson(response));
             JSONArray healthDataArray = healthResponse.getJSONArray("data");
             Log.d(mHealthunitsActivity, "" + healthDataArray);
-            JSONObject healthData = healthDataArray.getJSONObject(0);
-            Log.d(mHealthunitsActivity, "" + healthData);
 
-            int id = healthData.getInt("id");
-            String title = healthData.getString("title");
-            String lat = healthData.getString("lat");
-            String lon = healthData.getString("lon");
-            String open = healthData.getString("open");
-            String description = healthData.getString("description");
+            for (int i=0; i < healthDataArray.length();i++){
 
-            healthUnitModel =
-                    new HealthUnitModel(0,id,title, lat, lon, open,
-                            description);
+                JSONObject healthData = healthDataArray.getJSONObject(i);
+                Log.d(mHealthunitsActivity, "" + healthData);
+
+                int id = healthData.getInt("id");
+                String title = healthData.getString("title");
+                String lat = healthData.getString("lat");
+                String lon = healthData.getString("lon");
+                String open = healthData.getString("open");
+                String description = healthData.getString("description");
+
+                healthUnitModel =
+                        new HealthUnitModel(0,id,title, lat, lon, open,
+                                description);
+
+                healthUnitModelList.add(healthUnitModel);
+            }
 
         } catch (JSONException e) {
             Log.d(mHealthunitsActivity, "Json error: " + e.getMessage());
         }
-        return healthUnitModel;
+        return (ArrayList<HealthUnitModel>) healthUnitModelList;
     }
 
     @Override
