@@ -6,13 +6,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layout_blue_safe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.skyfishjy.library.RippleBackground
+                    android:id="@+id/blu_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rb_color="@color/colorRipple"
+                    app:rb_duration="3000"
+                    app:rb_radius="17dp"
+                    app:rb_rippleAmount="3"
+                    app:rb_scale="4">
+
+
+                    <ImageView
+                        android:id="@+id/btn_bluesafe"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="blue safe button"
+                        android:src="@drawable/ic_smartphone_black_24dp"
+                        android:tint="@color/colorAccent" />
+
+                </com.skyfishjy.library.RippleBackground>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_begin="75dp"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:text="Tap icon to enable Tracing mode check  more tab to learn more"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -22,9 +95,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="20sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/layout_blue_safe"
+         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_health_units"
@@ -140,128 +213,7 @@
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/btn_talk_to_a_doctor">
 
-                <LinearLayout
-                    android:id="@+id/layout_sub_tips"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_more_updates">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="110dp"
-                        android:layout_margin="7dp"
-                        android:backgroundTint="@color/textColorWhite"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="0dp"
-                        app:cardPreventCornerOverlap="false">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical"
-                            android:padding="5dp">
-
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                               android:id="@+id/img_ic_what_is_corona"
-                                android:src="@drawable/ic_corona"
-                                />
-
-                            <TextView
-                                android:id="@+id/txt_what_is_corona"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:fontFamily="@font/rubik"
-                                android:text="what is corona virus"
-                                android:textColor="@color/textColor"
-                                android:textSize="11sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="110dp"
-                        android:layout_margin="7dp"
-                        android:backgroundTint="@color/textColorWhite"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="0dp"
-                        app:cardPreventCornerOverlap="false">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical"
-                            android:padding="5dp">
-
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:src="@drawable/ic_symptoms"
-                               />
-
-                            <TextView
-                                android:textColor="@color/textColor"
-                                android:id="@+id/txt_symptoms"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="what are the symptoms"
-                                android:textSize="11sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="110dp"
-                        android:layout_margin="7dp"
-                        android:backgroundTint="@color/textColorWhite"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical"
-                            android:padding="5dp">
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:src="@drawable/ic_transmission"
-
-                                />
-
-
-                            <TextView
-                                android:textColor="@color/textColor"
-                                android:id="@+id/txt_transmission"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="how its transmitted"
-                                android:textSize="11sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layout_sub_tips1"

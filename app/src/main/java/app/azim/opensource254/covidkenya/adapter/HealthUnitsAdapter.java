@@ -36,8 +36,19 @@ public class HealthUnitsAdapter extends RecyclerView.Adapter<HealthUnitsView> {
 
     @Override
     public void onBindViewHolder(@NonNull HealthUnitsView holder, int position) {
+
+        String healthStatus = (String.valueOf(healthUnitModelList.get(position).open));
+
+        if (healthStatus.equals("true")) {
+            holder.txt_open.setText("open");
+
+
+        } else {
+            holder.txt_open.setText("closed");
+        }
+
+
         holder.txt_title.setText(String.valueOf(healthUnitModelList.get(position).title));
-        holder.txt_open.setText(String.valueOf(healthUnitModelList.get(position).open));
         holder.txt_description.setText(String.valueOf(healthUnitModelList.get(position).description));
 
 
