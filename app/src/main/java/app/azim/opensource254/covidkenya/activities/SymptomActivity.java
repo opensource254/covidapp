@@ -4,10 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.activities.FirebaseChat.ChatActivity;
+import app.azim.opensource254.covidkenya.activities.FirebaseChat.LoginActivity;
+import app.azim.opensource254.covidkenya.activities.FirebaseChat.RegisterActivity;
+import app.azim.opensource254.covidkenya.activities.FirebaseChat.UsersActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -90,4 +97,44 @@ public class SymptomActivity extends AppCompatActivity implements View.OnClickLi
 
         }
     }
+
+
+    //setting up menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.symptoms_menu, menu);
+        return true;
+    }
+
+    //handling item menu clicks on nav bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_login) {
+            Intent intent1 = new Intent(this, LoginActivity.class);
+            this.startActivity(intent1);
+            return true;
+        }if (id == R.id.action_register) {
+            Intent intent1 = new Intent(this, RegisterActivity.class);
+            this.startActivity(intent1);
+            return true;
+        }if (id == R.id.action_user) {
+            Intent intent1 = new Intent(this, UsersActivity.class);
+            this.startActivity(intent1);
+            return true;
+        }if (id == R.id.action_chat) {
+            Intent intent1 = new Intent(this, ChatActivity.class);
+            this.startActivity(intent1);
+            return true;
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }
