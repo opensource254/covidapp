@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:title="menu_chat"
+        android:id="@+id/action_chat"
+        />
+    <item android:title="menu_login"
+        android:id="@+id/action_login"
+        />
+    <item android:title="menu_register"
+        android:id="@+id/action_register"
+        />
+    <item android:title="menu_user"
+        android:id="@+id/action_user"
+        />
+
+
+
+</menu>
