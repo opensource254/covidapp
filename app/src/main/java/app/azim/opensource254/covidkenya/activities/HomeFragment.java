@@ -34,7 +34,7 @@ private    MaterialButton moreTips, mTalkToSpecialist;
 
 
 
-        final RippleBackground rippleBackground= v.findViewById(R.id.blu_content);
+       final RippleBackground rippleBackground= v.findViewById(R.id.blu_content);
         ImageView imageView= v.findViewById(R.id.btn_bluesafe);
 
         CardView mnews = v.findViewById(R.id.card_news);
@@ -48,7 +48,7 @@ private    MaterialButton moreTips, mTalkToSpecialist;
         moreTips.setOnClickListener(this::btn_more_tips);
         mTalkToSpecialist.setOnClickListener(this::btn_talk_to_specialist);
 
-        imageView.setOnClickListener(view -> rippleBackground.startRippleAnimation());
+      imageView.setOnClickListener(view -> rippleBackground.startRippleAnimation());
 
         return v;
     }
