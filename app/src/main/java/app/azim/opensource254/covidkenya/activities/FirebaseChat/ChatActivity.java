@@ -115,11 +115,11 @@ public class ChatActivity extends AppCompatActivity {
 
         //textview layout paramaters for right bubble
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(200, 0, 0, 10);
+        lp.setMargins(200, 5, 0, 10);
 
         //textview layout paramaters for left bubble
         LinearLayout.LayoutParams np = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        np.setMargins(0, 0, 100, 10);
+        np.setMargins(0, 5, 100, 10);
 
 
         if(type == 1) {
