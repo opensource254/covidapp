@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.firebase:firebase-client-android:2.5.0'
     implementation 'com.google.firebase:firebase-auth:19.3.1'
     //****end of firebase library
-    
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -86,7 +86,6 @@ dependencies {
 
     //round image view library
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
 
 
 }
