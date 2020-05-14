@@ -14,7 +14,7 @@
         app:cardElevation="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="20dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="8dp"
         app:cardPreventCornerOverlap="false">
 
         <LinearLayout
@@ -29,7 +29,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="50dp"
                 android:id="@+id/image"
-                android:layout_gravity="left"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_corona" />
 
@@ -38,10 +38,11 @@
                 android:id="@+id/tip_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
                 android:text="what is corona virus"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="10sp"
+                />
         </LinearLayout>
 
 
