@@ -112,14 +112,22 @@ public class ChatActivity extends AppCompatActivity {
     public void addMessageBox(String message, int type){
         TextView textView = new TextView(ChatActivity.this);
         textView.setText(message);
+
+        //textview layout paramaters for right bubble
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(0, 0, 0, 10);
-        textView.setLayoutParams(lp);
+        lp.setMargins(200, 0, 0, 10);
+
+        //textview layout paramaters for left bubble
+        LinearLayout.LayoutParams np = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        np.setMargins(0, 0, 100, 10);
+
 
         if(type == 1) {
+            textView.setLayoutParams(lp);
             textView.setBackgroundResource(R.drawable.rounded_corner1);
         }
         else{
+            textView.setLayoutParams(np);
             textView.setBackgroundResource(R.drawable.rounded_corner2);
         }
 
