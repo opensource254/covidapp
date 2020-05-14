@@ -118,6 +118,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.navigation_situations:
                 selectedFragment = situationsFragment;
+                break;
+            case R.id.navigation_about:
+                selectedFragment = new AboutFragment();
 
         }
         assert selectedFragment != null;
