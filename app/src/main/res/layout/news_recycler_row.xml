@@ -35,6 +35,7 @@
             android:textSize="15sp"
             android:text="ministry of health kenya" />
         <TextView
+            android:autoLink="web"
             android:textSize="12sp"
             android:id="@+id/txt_twitter_body"
             android:layout_width="wrap_content"
