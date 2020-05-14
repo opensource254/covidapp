@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.TipsDetails">
+    tools:context=".activities.TipsDetails"
+    android:background="@color/mainColor">
 
 
-    <androidx.appcompat.widget.AppCompatImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_tips"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -16,7 +18,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/text_tips_title"
@@ -25,6 +29,7 @@
         android:layout_margin="8dp"
         android:layout_marginTop="16dp"
         android:text="tips heading"
+        android:fontFamily="@font/baloo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +38,7 @@
     <TextView
         android:layout_margin="8dp"
         android:id="@+id/text_tips_detail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheet"
         app:layout_constraintBottom_toBottomOf="parent"
