@@ -40,6 +40,7 @@
             android:id="@+id/txt_twitter_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textIsSelectable="true"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan to mtronic" />
 
         <androidx.appcompat.widget.AppCompatImageView
