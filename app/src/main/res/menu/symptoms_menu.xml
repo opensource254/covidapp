@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item android:title="menu_chat"
+    <item android:title="chat"
         android:id="@+id/action_chat"
         />
-    <item android:title="menu_login"
+    <item android:title="login"
         android:id="@+id/action_login"
         />
-    <item android:title="menu_register"
+    <item android:title="register"
         android:id="@+id/action_register"
         />
-    <item android:title="menu_user"
+    <item android:title="user"
         android:id="@+id/action_user"
         />
 
