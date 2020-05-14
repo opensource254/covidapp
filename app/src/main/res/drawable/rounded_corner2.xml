@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <rotate
-            android:fromDegrees="45"
+            android:fromDegrees="-45"
             android:pivotX="0%"
             android:pivotY="0%"
 
@@ -12,13 +12,13 @@
             </shape>
         </rotate>
     </item>
-    <item android:right="10dp">
+    <item android:left="10dp">
         <shape android:shape="rectangle" >
             <solid android:color="@color/colorPrimary" />
             <corners android:radius="10dp" />
             <padding
                 android:bottom="5dip"
-                android:left="5dip"
+                android:left="15dip"
                 android:right="5dip"
                 android:top="5dip" />
         </shape>
