@@ -84,5 +84,9 @@ dependencies {
     //ripple background effect library
     implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
 
+    //round image view library
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
 
 }
