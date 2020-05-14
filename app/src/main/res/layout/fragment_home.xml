@@ -28,58 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-
-                <com.skyfishjy.library.RippleBackground
-                    android:id="@+id/blu_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:rb_color="@color/colorRipple"
-                    app:rb_duration="3000"
-                    app:rb_radius="17dp"
-                    app:rb_rippleAmount="3"
-                    app:rb_scale="4">
-
-
-                    <ImageView
-                        android:id="@+id/btn_bluesafe"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_centerInParent="true"
-                        android:contentDescription="blue safe button"
-                        android:src="@drawable/ic_smartphone_black_24dp"
-                        android:tint="@color/colorAccent" />
-
-                </com.skyfishjy.library.RippleBackground>
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintGuide_begin="75dp"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:text="Tap icon to enable Tracing mode check  more tab to learn more"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -212,6 +161,54 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/btn_talk_to_a_doctor">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_margin="10dp"
+                        app:cardElevation="1dp"
+                        android:padding="8dp"
+                        app:cardCornerRadius="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                        <com.skyfishjy.library.RippleBackground
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/blu_content"
+                            app:rb_color="#0099CC"
+                            app:rb_radius="32dp"
+                            app:rb_rippleAmount="4"
+                            app:rb_duration="3000"
+                            app:rb_scale="6">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerInParent="true"
+                                android:id="@+id/btn_bluesafe"
+                                android:src="@drawable/communication"/>
+                        </com.skyfishjy.library.RippleBackground>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:text="To enable contact tracing mode please tap the blue icon"/>
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
 
 
 
