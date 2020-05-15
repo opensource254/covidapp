@@ -50,7 +50,7 @@ Contributions are always welcome. Please make sure you read [Contributing notes]
 | GET     | `/api/v1/tweets`      | Get all tweets          |
 | GET     | `/api/v1/county_case` | Get all counties detail |
 | GET     | `/api/v1/counties`    | Get all counties        |
-| GET     | `api/v1/county/:id`   | Get all tweets by ids   | 
+| GET     | `api/v1/county/:id`   | Get all counties by ids | 
 
 
 
