@@ -1,6 +1,7 @@
 package app.azim.opensource254.covidkenya.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -23,10 +25,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.adapter.CountiesAdapter;
 import app.azim.opensource254.covidkenya.adapter.HealthUnitsAdapter;
 import app.azim.opensource254.covidkenya.adapter.SituationRecyclerAdapter;
 import app.azim.opensource254.covidkenya.api.publicdata.ApiServices;
 import app.azim.opensource254.covidkenya.api.publicdata.CoronaNinjaInstance;
+import app.azim.opensource254.covidkenya.models.CountiesData;
 import app.azim.opensource254.covidkenya.models.SituationModel;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -36,7 +40,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
-public class SituationsFragment extends Fragment  {
+public class SituationsFragment extends Fragment{
     final static String mSituationsFragment = "SituationsFragment";
 
     private SituationRecyclerAdapter mrecyclerAdapter;
@@ -47,6 +51,7 @@ public class SituationsFragment extends Fragment  {
     List<SituationModel> situationModelList;
     SituationModel situationModel;
     Object response;
+    MaterialButton moreStats;
 
     //overriding oncreate view
     @Nullable
@@ -64,9 +69,19 @@ public class SituationsFragment extends Fragment  {
         //view
         progressBar = v.findViewById(R.id.progress_bar);
         situationRecyclerView = v.findViewById(R.id.recycler_situation);
+        moreStats = v.findViewById(R.id.btn_talk_more_situations);
+
 
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
+
+        moreStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),CountiesStats.class));
+            }
+        });
+
 
         try{
             assert this.getArguments() != null;
@@ -117,4 +132,5 @@ public class SituationsFragment extends Fragment  {
         }
         return situationModel;
     }
+
 }
