@@ -2,7 +2,6 @@ package app.azim.opensource254.covidkenya.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,12 +29,9 @@ import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.adapter.CountiesAdapter;
-import app.azim.opensource254.covidkenya.adapter.TipsAdapter;
 import app.azim.opensource254.covidkenya.models.CountiesData;
-import app.azim.opensource254.covidkenya.models.TipsData;
-import io.reactivex.disposables.CompositeDisposable;
 
-public class CountiesStats extends AppCompatActivity {
+public class CountiesStatsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CountiesAdapter adapter;
     private List<CountiesData> countiesData;
@@ -50,7 +45,7 @@ public class CountiesStats extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.counties_stats);
+        setContentView(R.layout.activity_counties_stats);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //setting dark text and white ontouch bottom ui
@@ -137,7 +132,7 @@ public class CountiesStats extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(CountiesStats.this,"Error: "+error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(CountiesStatsActivity.this,"Error: "+error.toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
