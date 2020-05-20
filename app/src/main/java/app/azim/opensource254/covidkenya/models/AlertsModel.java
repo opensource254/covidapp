@@ -10,7 +10,6 @@ public class AlertsModel {
     }
 
 
-
     public AlertsModel(int i, int id, String title, String detail) {
 
         this.id = id;
