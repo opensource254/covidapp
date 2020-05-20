@@ -140,7 +140,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_talk_to_a_doctor"
-                style="?attr/materialButtonOutlinedStyle"
+                style="?attr/materialButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
