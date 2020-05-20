@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CountiesStats"
+    tools:context=".activities.CountiesStatsActivity"
     android:background="@color/mainColor">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -34,17 +34,20 @@
     <EditText
         android:id="@+id/searchEdittext"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/searchbox"
-        android:layout_marginTop="50dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="70dp"
         android:layout_marginRight="15dp"
-        android:drawableLeft="@drawable/search"
-        android:textSize="14sp"
-        android:textColorHint="#000"
-        android:textColor="#fff"
+        android:elevation="4dp"
+        android:background="@drawable/chat_rounded_corner"
+        android:drawableStart="@drawable/ic_search"
         android:drawablePadding="10dp"
-        android:hint="Search..."/>
+        android:drawableTint="@color/colorAccent"
+        android:hint="Search..."
+
+        android:textColor="#fff"
+        android:textColorHint="@color/textColor"
+        android:textSize="14sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/searchEdittext"
