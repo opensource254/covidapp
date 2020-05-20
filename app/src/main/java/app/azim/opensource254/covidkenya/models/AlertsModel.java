@@ -9,9 +9,13 @@ public class AlertsModel {
     public AlertsModel() {
     }
 
-    public AlertsModel(int id,  String title , String
-            detail) {
 
+
+    public AlertsModel(int i, int id, String title, String detail) {
+
+        this.id = id;
+        this.title = title;
+        this.detail = detail;
 
     }
 }
