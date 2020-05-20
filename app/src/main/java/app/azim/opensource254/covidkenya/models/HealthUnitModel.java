@@ -22,24 +22,9 @@ public class HealthUnitModel {
         this.lon = lon;
         this.open = open;
         this.description = description;
-       this.unit_id = unit_id;
+        this.unit_id = unit_id;
 
 
     }
 
-
-
-
-    // @NonNull
-    // @Override
-    //  public String toString() {
-    //      return "Country{" +
-    //             "unit_id='" + unit_id + '\'' +
-   /*             ", id='" + id + '\'' +
-                ", lat='" + lat + '\'' +
-                ", lon='" + lon + '\'' +
-                ", open=" + open +
-                ", description=" + description +
-                '}';
-    }*/
 }
