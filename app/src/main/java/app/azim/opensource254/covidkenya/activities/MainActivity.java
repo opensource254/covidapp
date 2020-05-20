@@ -15,11 +15,16 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.Serializable;
+import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.adapter.AlertsRecylerAdapter;
 import app.azim.opensource254.covidkenya.adapter.SituationRecyclerAdapter;
+import app.azim.opensource254.covidkenya.api.privatedata.ServiceInstance;
 import app.azim.opensource254.covidkenya.api.publicdata.ApiServices;
 import app.azim.opensource254.covidkenya.api.publicdata.CoronaNinjaInstance;
+import app.azim.opensource254.covidkenya.models.AlertsModel;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -30,11 +35,12 @@ import io.reactivex.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
     final static String mMainActivity = "MainActivity";
     CompositeDisposable disposable;
-    Bundle bundle;
-
+    Bundle bundle, sbundle;
     SituationsFragment situationsFragment;
+    AlertFragment alertFragment;
+    private RecyclerView alertsRecyclerView;
 
-    ProgressBar progressBar;
+    ProgressBar progressBar, mprogressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         disposable = new CompositeDisposable();
         bundle = new Bundle();
+        sbundle = new Bundle();
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //setting dark text and white ontouch bottom ui
@@ -57,11 +65,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         CardView mnews = findViewById(R.id.card_news);
+       // mprogressBar =  findViewById(R.id.alert_progress_bar);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         //setting up home fragment to be default
         situationsFragment = new SituationsFragment();
+        alertFragment = new AlertFragment();
+
         fetchDataForCountry();
+        fetchDataForAlert();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
@@ -83,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(Object response) {
-                        Log.d(mMainActivity, ""+response);
+                        Log.d(mMainActivity, "" + response);
                         bundle.putSerializable("response", (Serializable) response);
                         situationsFragment.setArguments(bundle);
                     }
@@ -91,16 +103,51 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
-                        System.out.println("response  Error  "+ e.getMessage());
+                        System.out.println("response  Error  " + e.getMessage());
                     }
 
                     @Override
                     public void onComplete() {
-                       // progressBar.setVisibility(View.GONE);
+                        // progressBar.setVisibility(View.GONE);
                     }
                 });
     }
 
+    //fetching alerts fragment situation data
+    private void fetchDataForAlert() {
+        ServiceInstance.getApiService().getAlerts()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Object>() {
+                    @Override
+                    public void onSubscribe(Disposable di) {
+                        disposable.add(di);
+                     //   mprogressBar.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onNext(Object response) {
+                        Log.d(mMainActivity, "" + response);
+                        sbundle.putSerializable("response", (Serializable) response);
+                        alertFragment.setArguments(sbundle);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(getApplicationContext(), "Error failed to fetch data", Toast.LENGTH_SHORT).show();
+                        System.out.println("response  Error  " + e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                      //   mprogressBar.setVisibility(View.GONE);
+
+                    }
+                });
+
+    }
 
     //handling bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -114,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.navigation_alerts:
 
-                selectedFragment = new AlertFragment();
+                selectedFragment = alertFragment;
                 break;
             case R.id.navigation_situations:
                 selectedFragment = situationsFragment;
@@ -126,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         assert selectedFragment != null;
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 selectedFragment).commit();
-        return  true;
+        return true;
 
     };
 
