@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="50dp"
+    android:padding="7dp"
+    android:layout_margin="4dp"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/myHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/county_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo"
+            android:text="Nairobi"
+            android:textColor="@color/textColor"
+            android:textSize="19dp" />
+    </LinearLayout>
+
+    <TableRow
+        android:id="@+id/hr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/myHeader"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/mainColor" />
+
+    <TextView
+        android:id="@+id/confirmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hr"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="7dp"
+        android:text="Cases"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/deaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hr"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="7dp"
+        android:layout_toEndOf="@id/confirmed"
+        android:fontFamily="@font/rubik"
+        android:text="Deaths"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/tests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hr"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="7dp"
+        android:layout_toEndOf="@id/deaths"
+        android:text="Tests"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/recoveries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hr"
+        android:layout_marginBottom="7dp"
+        android:layout_toEndOf="@id/tests"
+        android:fontFamily="@font/rubik"
+        android:text="Recovered"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/confirmed_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmed"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="7dp"
+        android:drawableStart="@drawable/orange_dot"
+        android:drawablePadding="7dp"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/deaths_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deaths"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="7dp"
+        android:layout_toEndOf="@id/confirmed"
+        android:drawableStart="@drawable/red_dot"
+        android:drawablePadding="7dp"
+        android:text="5"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/tests_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tests"
+        android:layout_marginEnd="40dp"
+        android:layout_toEndOf="@id/deaths"
+        android:drawableStart="@drawable/blue_dot"
+        android:drawablePadding="7dp"
+        android:text="150"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/textColor" />
+
+    <TextView
+        android:id="@+id/recoveries_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recoveries"
+        android:layout_toEndOf="@id/tests_stats"
+        android:drawableStart="@drawable/green_dot"
+        android:drawablePadding="7dp"
+        android:text="150"
+        android:fontFamily="@font/rubik"
+        android:textColor="@color/textColor" />
+
+</RelativeLayout>
