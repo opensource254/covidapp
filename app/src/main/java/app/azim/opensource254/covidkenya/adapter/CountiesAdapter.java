@@ -1,27 +1,18 @@
 package app.azim.opensource254.covidkenya.adapter;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.button.MaterialButton;
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.activities.CountiesStats;
 import app.azim.opensource254.covidkenya.models.CountiesData;
-import app.azim.opensource254.covidkenya.models.TipsData;
-
 
 
 public class CountiesAdapter extends RecyclerView.Adapter<CountiesAdapter.ViewHolder> {
@@ -39,7 +30,7 @@ public class CountiesAdapter extends RecyclerView.Adapter<CountiesAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.countries_stats_list,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.countries_stats_recycler_row,parent,false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
