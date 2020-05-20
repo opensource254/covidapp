@@ -75,12 +75,7 @@ public class SituationsFragment extends Fragment{
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
 
-        moreStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(),CountiesStats.class));
-            }
-        });
+        moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),CountiesStats.class)));
 
 
         try{
