@@ -1,8 +1,6 @@
 package app.azim.opensource254.covidkenya.api.privatedata;
 
 
-
-
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.models.HealthUnitModel;
@@ -24,7 +22,6 @@ public interface ApiServicesInterface {
 
     @GET("alerts")
     Observable<Object> getAlerts();
-
 
 
 }
