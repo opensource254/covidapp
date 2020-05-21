@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    tools:context=".activities.FirebaseChat.LoginActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            app:startIconDrawable="@drawable/ic_person_black_24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="login"
+            app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/username"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:layout_marginBottom="10dp"
+                    />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField2"
+            app:startIconDrawable="@drawable/ic_lock_black_24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/password"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:layout_marginBottom="10dp"
+                    />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_gravity="center_horizontal"
+            style="?attr/materialButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:elevation="0dp"
+            android:text="Login"
+            android:id="@+id/loginButton"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorAccent"
+
+            app:rippleColor="@color/colorAccent"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click here to register"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/register"/>
+
+    </LinearLayout>

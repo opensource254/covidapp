@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "658202870013",
+    "firebase_url": "https://covappkenya.firebaseio.com",
+    "project_id": "covappkenya",
+    "storage_bucket": "covappkenya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658202870013:android:b2504352bc63bcc38ebe94",
+        "android_client_info": {
+          "package_name": "app.azim.opensource254.covidkenya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658202870013-94lp7mg5cqb5405icu09hn4is6lun1qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3B9XWnWe_nN6wpLvyU6HvvYNCkE7NlGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658202870013-94lp7mg5cqb5405icu09hn4is6lun1qg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

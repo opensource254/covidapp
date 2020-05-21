@@ -7,6 +7,7 @@
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#c7c7c7</color>
     <color name="colorAccent">#0097A7</color>
+    <color name="colorRipple">#7A0097A7</color>
     <color name="caseColorLine">#F90000</color>
     <color name="recoveredColorLine">#428C56</color>
     <color name="deathsColorLine">#7D0019</color>

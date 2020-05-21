@@ -11,8 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.HealthUnitsActivity"></activity>
-        <activity android:name=".activities.TipsDetails"></activity>
+        <activity android:name=".activities.CountiesStatsActivity"></activity>
+        <activity android:name=".activities.FirebaseChat.UsersActivity" />
+        <activity android:name=".activities.FirebaseChat.RegisterActivity" />
+        <activity android:name=".activities.FirebaseChat.LoginActivity" />
+        <activity android:name=".activities.FirebaseChat.ChatActivity" />
+        <activity android:name=".activities.SymptomActivity" />
+        <activity android:name=".activities.HealthUnitsActivity" />
+        <activity android:name=".activities.TipsDetails" />
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.SplashScreen">

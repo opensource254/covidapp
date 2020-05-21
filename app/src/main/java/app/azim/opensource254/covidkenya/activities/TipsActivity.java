@@ -27,6 +27,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import app.azim.opensource254.covidkenya.R;
 import app.azim.opensource254.covidkenya.adapter.TipsAdapter;
@@ -43,6 +44,8 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
 
     public static final String EXTRA_IMAGE_URL= "imageUrl";
     public static final String EXTRA_DETAILS = "details";
+    public static final String EXTRA_TITLE = "title";
+
     //custom  top toolbar
     private Toolbar mtoolbar;
 
@@ -67,7 +70,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Tips");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Tips");
 
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         recyclerView = findViewById(R.id.recycler_view);
@@ -128,6 +131,7 @@ public class TipsActivity extends AppCompatActivity implements TipsAdapter.OnIte
         TipsData clickedItem = tipsData.get(position);
         detailIntent.putExtra(EXTRA_IMAGE_URL, clickedItem.getImage());
         detailIntent.putExtra(EXTRA_DETAILS, clickedItem.getDetail());
+        detailIntent.putExtra(EXTRA_TITLE, clickedItem.getTitle());
 
         startActivity(detailIntent);
     }

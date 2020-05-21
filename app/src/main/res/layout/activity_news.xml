@@ -29,8 +29,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="gone"
         android:layout_marginTop="50dp"
@@ -51,5 +49,16 @@
         android:layout_marginTop="100dp"
         app:layout_anchor="@+id/progress_bar"
         app:layout_anchorGravity="bottom|center" />
+
+    <TextView
+        android:id="@+id/error_tv"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_anchorGravity="bottom|center"/>
 
 </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
