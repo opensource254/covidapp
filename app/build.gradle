@@ -88,5 +88,8 @@ dependencies {
     //round image view library
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //expandable recyclerview
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+
 
 }
