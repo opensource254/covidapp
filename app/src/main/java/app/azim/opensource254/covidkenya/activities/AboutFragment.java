@@ -48,18 +48,18 @@ public class AboutFragment extends Fragment {
     private List<About> getAboutsList() {
 
         AboutContent aboutContent1 = new AboutContent();
-        aboutContent1.setContent("app purpose");
+        aboutContent1.setContent("This app helps you to stay safe during this pandemic , Follow goverment directives with ease and stay upto date with live numbers");
         About about1 = new About("What is the purpose of this app", Arrays.asList(aboutContent1));
         aboutList.add(about1);
 
         AboutContent aboutContent2 = new AboutContent();
-        aboutContent2.setContent("benefits");
+        aboutContent2.setContent("You will be able to avoid fake news , contact medical practitioners and stay safe always");
         About about2 = new About("How does this app benefit me", Arrays.asList(aboutContent2));
         aboutList.add(about2);
 
         AboutContent aboutContent3 = new AboutContent();
-        aboutContent3.setContent("users");
-        About about3 = new About("Who can use Corvid safe", Arrays.asList(aboutContent3));
+        aboutContent3.setContent("This app is designed to benefit everybody from doctors , goverment officials and normal citizens from all over the world");
+        About about3 = new About("Who can use Corvid safe App", Arrays.asList(aboutContent3));
         aboutList.add(about3);
 
         return aboutList;
