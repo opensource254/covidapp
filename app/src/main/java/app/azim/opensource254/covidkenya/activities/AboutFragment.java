@@ -59,7 +59,7 @@ public class AboutFragment extends Fragment {
 
         AboutContent aboutContent3 = new AboutContent();
         aboutContent3.setContent("This app is designed to benefit everybody from doctors , goverment officials and normal citizens from all over the world");
-        About about3 = new About("Who can use Corvid safe App", Arrays.asList(aboutContent3));
+        About about3 = new About("Who can use this App", Arrays.asList(aboutContent3));
         aboutList.add(about3);
 
         return aboutList;
