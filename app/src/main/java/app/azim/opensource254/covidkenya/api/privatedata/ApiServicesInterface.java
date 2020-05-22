@@ -1,8 +1,6 @@
 package app.azim.opensource254.covidkenya.api.privatedata;
 
 
-
-
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.models.HealthUnitModel;
@@ -14,12 +12,16 @@ import retrofit2.http.GET;
 
 public interface ApiServicesInterface {
 
+    //using rx java
+
     @GET("tweets")
     Observable<TweetResponse> getNews();
 
-    //using rx java
     @GET("hospitals")
     Observable<Object> getHealthUnits();
+
+    @GET("alerts")
+    Observable<Object> getAlerts();
 
 
 }

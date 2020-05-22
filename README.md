@@ -48,6 +48,9 @@ Contributions are always welcome. Please make sure you read [Contributing notes]
 | GET     | `/api/v1/hospital/:id`| Get a hospital          |
 | PUT     | `/api/v1/hospital/:id`| Update a hospital       |
 | GET     | `/api/v1/tweets`      | Get all tweets          |
+| POST    | `/api/v1/county_case` | Get all counties detail |
+| GET     | `/api/v1/counties`    | Get all counties        |
+| GET     | `api/v1/county/:id`   | Get all counties by ids | 
 
 
 
