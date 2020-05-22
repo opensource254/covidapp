@@ -18,7 +18,7 @@ public class AboutTitlesViewHolder extends GroupViewHolder {
     }
 
 
-    public void setGenreTitle(ExpandableGroup group) {
+    public void setAboutTitle(ExpandableGroup group) {
         aboutTitle.setText(group.getTitle());
     }
 }
