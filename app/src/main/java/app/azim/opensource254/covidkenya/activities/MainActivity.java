@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
 
-        CardView mnews = findViewById(R.id.card_news);
-       // mprogressBar =  findViewById(R.id.alert_progress_bar);
+        // mprogressBar =  findViewById(R.id.alert_progress_bar);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         //setting up home fragment to be default
