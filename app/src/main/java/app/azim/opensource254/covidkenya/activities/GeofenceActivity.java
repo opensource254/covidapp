@@ -1,6 +1,7 @@
 package app.azim.opensource254.covidkenya.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import app.azim.opensource254.covidkenya.R;
 
@@ -131,8 +132,9 @@ public class GeofenceActivity extends AppCompatActivity {
                 return false;
             } else {
                 //here open external links in external browser or app
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(getApplicationContext(), Uri.parse(url));
                 return true;
             }
 
