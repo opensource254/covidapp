@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="app.azim.opensource254.covidkenya">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,8 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activities.CountiesStatsActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".activities.GeofenceActivity"></activity>
+        <activity android:name=".activities.CountiesStatsActivity" />
         <activity android:name=".activities.FirebaseChat.UsersActivity" />
         <activity android:name=".activities.FirebaseChat.RegisterActivity" />
         <activity android:name=".activities.FirebaseChat.LoginActivity" />
