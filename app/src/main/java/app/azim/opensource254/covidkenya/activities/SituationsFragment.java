@@ -42,7 +42,7 @@ public class SituationsFragment extends Fragment {
     List<SituationModel> situationModelList;
     SituationModel situationModel;
     Object response;
-    MaterialButton moreStats;
+    MaterialButton moreStats,btngeofence;
 
     //overriding oncreate view
     @Nullable
@@ -61,12 +61,15 @@ public class SituationsFragment extends Fragment {
         progressBar = v.findViewById(R.id.progress_bar);
         situationRecyclerView = v.findViewById(R.id.recycler_situation);
         moreStats = v.findViewById(R.id.btn_talk_more_situations);
+        btngeofence = v.findViewById(R.id.btn_geofence);
+
 
 
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
+        btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),GeofenceActivity.class)));
 
 
         try {
