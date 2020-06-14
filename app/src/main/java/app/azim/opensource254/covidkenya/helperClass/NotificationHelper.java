@@ -1,4 +1,4 @@
-package app.azim.opensource254.covidkenya.brodcastReceivers;
+package app.azim.opensource254.covidkenya.helperClass;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
