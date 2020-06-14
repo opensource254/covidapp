@@ -41,6 +41,7 @@
         <activity
             android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity android:name=".activities.QuarantineActivity"></activity>
         <activity android:name=".activities.GeofenceActivity" />
         <activity android:name=".activities.CountiesStatsActivity" />
         <activity android:name=".activities.FirebaseChat.UsersActivity" />
