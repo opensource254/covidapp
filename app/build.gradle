@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     //adding room library
     def room_version = "2.2.5"
@@ -95,6 +96,10 @@ dependencies {
 
     //implementing custom chrome tabs
     implementation 'androidx.browser:browser:1.2.0'
+
+    //maps dependecy
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
 
 
 }
