@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activities.GeofenceActivity"></activity>
+        <activity android:name=".activities.QuarantineActivity"></activity>
+        <activity android:name=".activities.GeofenceActivity" />
         <activity android:name=".activities.CountiesStatsActivity" />
         <activity android:name=".activities.FirebaseChat.UsersActivity" />
         <activity android:name=".activities.FirebaseChat.RegisterActivity" />

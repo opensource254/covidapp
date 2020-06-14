@@ -42,7 +42,7 @@ public class SituationsFragment extends Fragment {
     List<SituationModel> situationModelList;
     SituationModel situationModel;
     Object response;
-    MaterialButton moreStats,btngeofence;
+    MaterialButton moreStats,btngeofence,virtualQuarantine;
 
     //overriding oncreate view
     @Nullable
@@ -62,6 +62,7 @@ public class SituationsFragment extends Fragment {
         situationRecyclerView = v.findViewById(R.id.recycler_situation);
         moreStats = v.findViewById(R.id.btn_talk_more_situations);
         btngeofence = v.findViewById(R.id.btn_geofence);
+        virtualQuarantine = v.findViewById(R.id.btn_quarantine);
 
 
 
@@ -70,6 +71,7 @@ public class SituationsFragment extends Fragment {
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
         btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),GeofenceActivity.class)));
+        virtualQuarantine.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),QuarantineActivity.class)));
 
 
         try {
