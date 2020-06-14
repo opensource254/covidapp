@@ -3,7 +3,6 @@ package app.azim.opensource254.covidkenya.brodcastReceivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Location;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,6 +12,7 @@ import com.google.android.gms.location.GeofencingEvent;
 import java.util.List;
 
 import app.azim.opensource254.covidkenya.activities.MapsActivity;
+import app.azim.opensource254.covidkenya.helperClass.NotificationHelper;
 
 public class GeofenceBroadcastReceiver extends BroadcastReceiver {
 
