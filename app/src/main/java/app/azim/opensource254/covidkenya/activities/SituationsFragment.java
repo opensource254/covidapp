@@ -70,12 +70,8 @@ public class SituationsFragment extends Fragment {
         situationRecyclerView.setHasFixedSize(true);
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
-<<<<<<< HEAD
-        btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),MapsActivity.class)));
-=======
         btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),GeofenceActivity.class)));
         virtualQuarantine.setOnClickListener(v1 -> startActivity(new Intent(getActivity(),QuarantineActivity.class)));
->>>>>>> worked on the virtual quarantine UI
 
 
         try {
