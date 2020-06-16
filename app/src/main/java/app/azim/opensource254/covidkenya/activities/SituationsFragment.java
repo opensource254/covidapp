@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
+import com.rahman.dialog.Activity.SmartDialog;
+import com.rahman.dialog.ListenerCallBack.SmartDialogClickListener;
+import com.rahman.dialog.Utilities.SmartDialogBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +75,7 @@ public class SituationsFragment extends Fragment {
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
         btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), MapsActivity.class)));
-        virtualQuarantine.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), QuarantineActivity.class)));
+        virtualQuarantine.setOnClickListener(v1 ->dialog1());
 
 
         try {
@@ -122,6 +126,365 @@ public class SituationsFragment extends Fragment {
             Log.d(mSituationsFragment, "Json error: " + e.getMessage());
         }
         return situationModel;
+    }
+
+    public void dialog1(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                        dialog2();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+                dialog2();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog2(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog3(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog4(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog5(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog6(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog7(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog8(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog9(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog10(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog11(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog12(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog13(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog14(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog15(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog16(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
+    }
+
+    public void dialog17(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("")
+                .setSubTitle("?")
+                .setCancalable(false)
+                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                smartDialog.dismiss();
+
+            }
+        }).build().show();
     }
 
 }
