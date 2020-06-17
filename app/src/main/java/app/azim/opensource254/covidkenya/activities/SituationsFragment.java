@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,8 @@ public class SituationsFragment extends Fragment {
     SituationModel situationModel;
     Object response;
     MaterialButton moreStats,btngeofence,virtualQuarantine;
+    private int yes_count = 0;
+    private List<String> answers;
 
     //overriding oncreate view
     @Nullable
@@ -75,7 +78,13 @@ public class SituationsFragment extends Fragment {
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
         btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), MapsActivity.class)));
-        virtualQuarantine.setOnClickListener(v1 ->dialog1());
+        virtualQuarantine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answers = new ArrayList<>();
+                dialog1();
+            }
+        });
 
 
         try {
@@ -128,24 +137,45 @@ public class SituationsFragment extends Fragment {
         return situationModel;
     }
 
+
+    public void addYES(){
+        answers.add("Yes");
+    }
+
+    public void addNO(){
+        answers.add("No");
+    }
+
+    public int AnswersCounter(){
+
+        yes_count = Collections.frequency(answers,"Yes");
+        return yes_count;
+    }
+    public void resetAnswerCounter(){
+        yes_count= 0;
+    }
+
     public void dialog1(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have a dry cough?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
                         dialog2();
+
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
                 dialog2();
+
 
             }
         }).build().show();
@@ -154,19 +184,23 @@ public class SituationsFragment extends Fragment {
     public void dialog2(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have a cold?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog3();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog3();
+
 
             }
         }).build().show();
@@ -175,19 +209,22 @@ public class SituationsFragment extends Fragment {
     public void dialog3(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have diarrhoea?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog4();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog4();
 
             }
         }).build().show();
@@ -196,19 +233,22 @@ public class SituationsFragment extends Fragment {
     public void dialog4(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have a sore throat?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
-                        smartDialog.dismiss();
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addYES();
                 smartDialog.dismiss();
+                dialog5();
+
+            }
+        }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                addNO();
+                smartDialog.dismiss();
+                dialog5();
 
             }
         }).build().show();
@@ -217,19 +257,23 @@ public class SituationsFragment extends Fragment {
     public void dialog5(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have severe headache?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog6();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog6();
+
 
             }
         }).build().show();
@@ -238,19 +282,23 @@ public class SituationsFragment extends Fragment {
     public void dialog6(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have a fever?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog7();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog7();
+
 
             }
         }).build().show();
@@ -259,19 +307,22 @@ public class SituationsFragment extends Fragment {
     public void dialog7(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have difficulty in breathing?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog8();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog8();
 
             }
         }).build().show();
@@ -280,19 +331,22 @@ public class SituationsFragment extends Fragment {
     public void dialog8(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have fatigue?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog9();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog9();
 
             }
         }).build().show();
@@ -301,19 +355,22 @@ public class SituationsFragment extends Fragment {
     public void dialog9(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Have you travelled recently in the past 14 days?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog10();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog10();
 
             }
         }).build().show();
@@ -322,19 +379,23 @@ public class SituationsFragment extends Fragment {
     public void dialog10(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have a travel history to a covid 19 infected Area?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog11();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog11();
+
 
             }
         }).build().show();
@@ -343,19 +404,22 @@ public class SituationsFragment extends Fragment {
     public void dialog11(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have direct contact with or are you taking care of a covid 19 patient?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog12();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog12();
 
             }
         }).build().show();
@@ -364,19 +428,22 @@ public class SituationsFragment extends Fragment {
     public void dialog12(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you have any pre-existing condition i.e. (Cancer,HIV,Diabetes e.t.c)?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog13();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog13();
 
             }
         }).build().show();
@@ -385,103 +452,49 @@ public class SituationsFragment extends Fragment {
     public void dialog13(){
         new SmartDialogBuilder(getContext())
                 .setTitle("")
-                .setSubTitle("?")
+                .setSubTitle("Do you smoke?")
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+                        dialog14();
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
+                dialog14();
+
 
             }
         }).build().show();
+        resetAnswerCounter();
+
     }
 
     public void dialog14(){
         new SmartDialogBuilder(getContext())
-                .setTitle("")
-                .setSubTitle("?")
+                .setTitle("No of YES: "+AnswersCounter())
+                .setSubTitle("No of YES: "+AnswersCounter())
                 .setCancalable(false)
                 .setPositiveButton("Yes", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
+                        addYES();
                         smartDialog.dismiss();
+
+
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
+                addNO();
                 smartDialog.dismiss();
 
-            }
-        }).build().show();
-    }
-
-    public void dialog15(){
-        new SmartDialogBuilder(getContext())
-                .setTitle("")
-                .setSubTitle("?")
-                .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
-                        smartDialog.dismiss();
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
-                smartDialog.dismiss();
-
-            }
-        }).build().show();
-    }
-
-    public void dialog16(){
-        new SmartDialogBuilder(getContext())
-                .setTitle("")
-                .setSubTitle("?")
-                .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
-                        smartDialog.dismiss();
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
-                smartDialog.dismiss();
-
-            }
-        }).build().show();
-    }
-
-    public void dialog17(){
-        new SmartDialogBuilder(getContext())
-                .setTitle("")
-                .setSubTitle("?")
-                .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        Toast.makeText(getContext(),"Yes button Click",Toast.LENGTH_SHORT).show();
-                        smartDialog.dismiss();
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                Toast.makeText(getContext(),"No button Click",Toast.LENGTH_SHORT).show();
-                smartDialog.dismiss();
 
             }
         }).build().show();
