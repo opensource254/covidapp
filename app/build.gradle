@@ -100,6 +100,9 @@ dependencies {
     //maps dependecy
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 
+    //fancy dialog
+    implementation 'com.github.TecOrb-Developers:SmartAlertDialog:v1.0'
+
 
 
 }
