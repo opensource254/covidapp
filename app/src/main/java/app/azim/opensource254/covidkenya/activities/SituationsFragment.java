@@ -146,13 +146,33 @@ public class SituationsFragment extends Fragment {
         answers.add("No");
     }
 
-    public int AnswersCounter(){
-
+    public String AnswersCounter(){
         yes_count = Collections.frequency(answers,"Yes");
-        return yes_count;
+        String testLevel = riskLevel();
+        return testLevel;
     }
+
     public void resetAnswerCounter(){
         yes_count= 0;
+    }
+
+    public String riskLevel(){
+        String level= "";
+        if (yes_count>=6){
+            level =  "High";
+        }
+        else if (yes_count<=5){
+            level =  "Low";
+        }
+        return level;
+    }
+
+    public void whereNext(){
+        if (AnswersCounter().equals("High")){
+            dialog14();
+        }
+        else
+            dialog15();
     }
 
     public void dialog1(){
@@ -459,7 +479,7 @@ public class SituationsFragment extends Fragment {
                     public void onClick(SmartDialog smartDialog) {
                         addYES();
                         smartDialog.dismiss();
-                        dialog14();
+                        whereNext();
 
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
@@ -467,37 +487,48 @@ public class SituationsFragment extends Fragment {
             public void onClick(SmartDialog smartDialog) {
                 addNO();
                 smartDialog.dismiss();
-                dialog14();
-
-
+                whereNext();
             }
         }).build().show();
         resetAnswerCounter();
-
     }
 
     public void dialog14(){
         new SmartDialogBuilder(getContext())
-                .setTitle("No of YES: "+AnswersCounter())
-                .setSubTitle("No of YES: "+AnswersCounter())
+                .setTitle("Risk Level "+AnswersCounter())
+                .setSubTitle("Do you wish to join a virtual quarantine?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
+                .setNegativeButtonHide(true)
+                .setPositiveButton("Join", new SmartDialogClickListener() {
                     @Override
                     public void onClick(SmartDialog smartDialog) {
-                        addYES();
                         smartDialog.dismiss();
-
-
+                        startActivity(new Intent(getContext(),QuarantineActivity.class));
                     }
                 }).setNegativeButton("No", new SmartDialogClickListener() {
             @Override
             public void onClick(SmartDialog smartDialog) {
-                addNO();
                 smartDialog.dismiss();
-
-
             }
         }).build().show();
     }
 
+    public void dialog15(){
+        new SmartDialogBuilder(getContext())
+                .setTitle("Risk Level "+AnswersCounter())
+                .setSubTitle("Your risk level is low, Continue being safe!!!")
+                .setCancalable(false)
+                .setNegativeButtonHide(true)
+                .setPositiveButton("Done", new SmartDialogClickListener() {
+                    @Override
+                    public void onClick(SmartDialog smartDialog) {
+                        smartDialog.dismiss();
+                    }
+                }).setNegativeButton("No", new SmartDialogClickListener() {
+            @Override
+            public void onClick(SmartDialog smartDialog) {
+                smartDialog.dismiss();
+            }
+        }).build().show();
+    }
 }
