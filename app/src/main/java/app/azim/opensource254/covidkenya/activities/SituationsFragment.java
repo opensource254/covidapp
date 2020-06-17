@@ -47,7 +47,7 @@ public class SituationsFragment extends Fragment {
     List<SituationModel> situationModelList;
     SituationModel situationModel;
     Object response;
-    MaterialButton moreStats,btngeofence,virtualQuarantine;
+    MaterialButton moreStats,btngeofence,self_test;
     private int yes_count = 0;
     private List<String> answers;
 
@@ -69,7 +69,7 @@ public class SituationsFragment extends Fragment {
         situationRecyclerView = v.findViewById(R.id.recycler_situation);
         moreStats = v.findViewById(R.id.btn_talk_more_situations);
         btngeofence = v.findViewById(R.id.btn_geofence);
-        virtualQuarantine = v.findViewById(R.id.btn_quarantine);
+        self_test = v.findViewById(R.id.btn_self_test);
 
 
 
@@ -78,7 +78,7 @@ public class SituationsFragment extends Fragment {
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
         btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), MapsActivity.class)));
-        virtualQuarantine.setOnClickListener(new View.OnClickListener() {
+        self_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 answers = new ArrayList<>();

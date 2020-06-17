@@ -64,7 +64,7 @@
             app:rippleColor="@color/colorAccent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_quarantine"
+            android:id="@+id/btn_self_test"
             style="?attr/materialButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
