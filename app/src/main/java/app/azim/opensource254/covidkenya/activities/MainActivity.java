@@ -13,18 +13,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.io.Serializable;
-import java.util.List;
-
 import androidx.recyclerview.widget.RecyclerView;
 import app.azim.opensource254.covidkenya.R;
-import app.azim.opensource254.covidkenya.adapter.AlertsRecylerAdapter;
-import app.azim.opensource254.covidkenya.adapter.SituationRecyclerAdapter;
 import app.azim.opensource254.covidkenya.api.privatedata.ServiceInstance;
-import app.azim.opensource254.covidkenya.api.publicdata.ApiServices;
 import app.azim.opensource254.covidkenya.api.publicdata.CoronaNinjaInstance;
-import app.azim.opensource254.covidkenya.models.AlertsModel;
+import app.azim.opensource254.covidkenya.utils.CheckNetwork;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -41,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView alertsRecyclerView;
 
     ProgressBar progressBar, mprogressBar;
+    CheckNetwork networkUtils;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         disposable = new CompositeDisposable();
         bundle = new Bundle();
         sbundle = new Bundle();
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //setting dark text and white ontouch bottom ui
@@ -64,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
 
+        networkUtils = new CheckNetwork(this);
+        if (networkUtils.haveNetworkConnection()) {
+            fetchDataForCountry();
+            fetchDataForAlert();
+        } else {
+
+            networkUtils.showtoast("Internet Connection Not Available");
+        }
+
+
         // mprogressBar =  findViewById(R.id.alert_progress_bar);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -71,8 +76,7 @@ public class MainActivity extends AppCompatActivity {
         situationsFragment = new SituationsFragment();
         alertFragment = new AlertFragment();
 
-        fetchDataForCountry();
-        fetchDataForAlert();
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
@@ -111,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
 
     //fetching alerts fragment situation data
     private void fetchDataForAlert() {
