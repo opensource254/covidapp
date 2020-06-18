@@ -148,8 +148,7 @@ public class SituationsFragment extends Fragment {
 
     public String AnswersCounter(){
         yes_count = Collections.frequency(answers,"Yes");
-        String testLevel = riskLevel();
-        return testLevel;
+        return riskLevel();
     }
 
     public void resetAnswerCounter(){
@@ -158,11 +157,10 @@ public class SituationsFragment extends Fragment {
 
     public String riskLevel(){
         String level= "";
-        if (yes_count>=6){
-            level =  "High";
-        }
-        else if (yes_count<=5){
-            level =  "Low";
+        if (yes_count >= 6) {
+            level = "High";
+        } else {
+            level = "Low";
         }
         return level;
     }
@@ -180,24 +178,18 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have a dry cough?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog2();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog2();
 
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog2();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog2();
 
 
-            }
         }).build().show();
     }
 
@@ -206,23 +198,17 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have a cold?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog3();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog3();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog3();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog3();
 
 
-            }
         }).build().show();
     }
 
@@ -231,22 +217,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have diarrhoea?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog4();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog4();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog4();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog4();
 
-            }
         }).build().show();
     }
 
@@ -255,22 +235,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have a sore throat?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addYES();
-                smartDialog.dismiss();
-                dialog5();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog5();
 
-            }
-        }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog5();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog5();
 
-            }
         }).build().show();
     }
 
@@ -279,23 +253,17 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have severe headache?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog6();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog6();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog6();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog6();
 
 
-            }
         }).build().show();
     }
 
@@ -304,23 +272,17 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have a fever?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog7();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog7();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog7();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog7();
 
 
-            }
         }).build().show();
     }
 
@@ -329,22 +291,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have difficulty in breathing?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog8();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog8();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog8();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog8();
 
-            }
         }).build().show();
     }
 
@@ -353,22 +309,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have fatigue?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog9();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog9();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog9();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog9();
 
-            }
         }).build().show();
     }
 
@@ -377,22 +327,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Have you travelled recently in the past 14 days?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog10();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog10();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog10();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog10();
 
-            }
         }).build().show();
     }
 
@@ -401,23 +345,17 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have a travel history to a covid 19 infected Area?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog11();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog11();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog11();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog11();
 
 
-            }
         }).build().show();
     }
 
@@ -426,22 +364,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have direct contact with or are you taking care of a covid 19 patient?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog12();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog12();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog12();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog12();
 
-            }
         }).build().show();
     }
 
@@ -450,22 +382,16 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you have any pre-existing condition i.e. (Cancer,HIV,Diabetes e.t.c)?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        dialog13();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    dialog13();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                dialog13();
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            dialog13();
 
-            }
         }).build().show();
     }
 
@@ -474,61 +400,40 @@ public class SituationsFragment extends Fragment {
                 .setTitle("")
                 .setSubTitle("Do you smoke?")
                 .setCancalable(false)
-                .setPositiveButton("Yes", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        addYES();
-                        smartDialog.dismiss();
-                        whereNext();
+                .setPositiveButton("Yes", smartDialog -> {
+                    addYES();
+                    smartDialog.dismiss();
+                    whereNext();
 
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                addNO();
-                smartDialog.dismiss();
-                whereNext();
-            }
+                }).setNegativeButton("No", smartDialog -> {
+            addNO();
+            smartDialog.dismiss();
+            whereNext();
         }).build().show();
         resetAnswerCounter();
     }
 
     public void dialog14(){
         new SmartDialogBuilder(getContext())
-                .setTitle("Risk Level "+AnswersCounter())
+                .setTitle("Risk Level " + AnswersCounter())
                 .setSubTitle("Do you wish to join a virtual quarantine?")
                 .setCancalable(false)
                 .setNegativeButtonHide(true)
-                .setPositiveButton("Join", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        smartDialog.dismiss();
-                        startActivity(new Intent(getContext(),QuarantineActivity.class));
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                smartDialog.dismiss();
-            }
-        }).build().show();
+                .setPositiveButton("Join", smartDialog -> {
+                    smartDialog.dismiss();
+                    startActivity(new Intent(getContext(), QuarantineActivity.class));
+                }).setNegativeButton("No", SmartDialog::dismiss).build().show();
     }
 
     public void dialog15(){
         new SmartDialogBuilder(getContext())
-                .setTitle("Risk Level "+AnswersCounter())
+                .setTitle("Risk Level " + AnswersCounter())
                 .setSubTitle("Your risk level is low, Continue being safe!!!")
                 .setCancalable(false)
                 .setNegativeButtonHide(true)
-                .setPositiveButton("Done", new SmartDialogClickListener() {
-                    @Override
-                    public void onClick(SmartDialog smartDialog) {
-                        smartDialog.dismiss();
-                    }
-                }).setNegativeButton("No", new SmartDialogClickListener() {
-            @Override
-            public void onClick(SmartDialog smartDialog) {
-                smartDialog.dismiss();
-            }
-        }).build().show();
+                .setPositiveButton("Done", SmartDialog::dismiss).setNegativeButton("No",
+                SmartDialog::dismiss).build().show();
     }
+
+
 }
