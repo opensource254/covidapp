@@ -1,6 +1,7 @@
 package app.azim.opensource254.covidkenya.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -47,7 +48,7 @@ public class SituationsFragment extends Fragment {
     List<SituationModel> situationModelList;
     SituationModel situationModel;
     Object response;
-    MaterialButton moreStats,btngeofence,self_test;
+    MaterialButton moreStats, btngeofence, self_test;
     private int yes_count = 0;
     private List<String> answers;
 
@@ -72,18 +73,14 @@ public class SituationsFragment extends Fragment {
         self_test = v.findViewById(R.id.btn_self_test);
 
 
-
         situationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         situationRecyclerView.setHasFixedSize(true);
 
         moreStats.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), CountiesStatsActivity.class)));
         btngeofence.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), MapsActivity.class)));
-        self_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                answers = new ArrayList<>();
-                dialog1();
-            }
+        self_test.setOnClickListener(v12 -> {
+            answers = new ArrayList<>();
+            dialog1();
         });
 
 
@@ -138,25 +135,25 @@ public class SituationsFragment extends Fragment {
     }
 
 
-    public void addYES(){
+    public void addYES() {
         answers.add("Yes");
     }
 
-    public void addNO(){
+    public void addNO() {
         answers.add("No");
     }
 
-    public String AnswersCounter(){
-        yes_count = Collections.frequency(answers,"Yes");
+    public String AnswersCounter() {
+        yes_count = Collections.frequency(answers, "Yes");
         return riskLevel();
     }
 
-    public void resetAnswerCounter(){
-        yes_count= 0;
+    public void resetAnswerCounter() {
+        yes_count = 0;
     }
 
-    public String riskLevel(){
-        String level= "";
+    public String riskLevel() {
+        String level;
         if (yes_count >= 6) {
             level = "High";
         } else {
@@ -165,15 +162,14 @@ public class SituationsFragment extends Fragment {
         return level;
     }
 
-    public void whereNext(){
-        if (AnswersCounter().equals("High")){
+    public void whereNext() {
+        if (AnswersCounter().equals("High")) {
             dialog14();
-        }
-        else
+        } else
             dialog15();
     }
 
-    public void dialog1(){
+    public void dialog1() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have a dry cough?")
@@ -193,7 +189,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog2(){
+    public void dialog2() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have a cold?")
@@ -212,7 +208,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog3(){
+    public void dialog3() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have diarrhoea?")
@@ -230,7 +226,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog4(){
+    public void dialog4() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have a sore throat?")
@@ -248,7 +244,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog5(){
+    public void dialog5() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have severe headache?")
@@ -267,7 +263,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog6(){
+    public void dialog6() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have a fever?")
@@ -286,7 +282,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog7(){
+    public void dialog7() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have difficulty in breathing?")
@@ -304,7 +300,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog8(){
+    public void dialog8() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have fatigue?")
@@ -322,7 +318,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog9(){
+    public void dialog9() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Have you travelled recently in the past 14 days?")
@@ -340,7 +336,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog10(){
+    public void dialog10() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have a travel history to a covid 19 infected Area?")
@@ -359,7 +355,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog11(){
+    public void dialog11() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have direct contact with or are you taking care of a covid 19 patient?")
@@ -377,7 +373,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog12(){
+    public void dialog12() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you have any pre-existing condition i.e. (Cancer,HIV,Diabetes e.t.c)?")
@@ -395,7 +391,7 @@ public class SituationsFragment extends Fragment {
         }).build().show();
     }
 
-    public void dialog13(){
+    public void dialog13() {
         new SmartDialogBuilder(getContext())
                 .setTitle("")
                 .setSubTitle("Do you smoke?")
@@ -413,7 +409,7 @@ public class SituationsFragment extends Fragment {
         resetAnswerCounter();
     }
 
-    public void dialog14(){
+    public void dialog14() {
         new SmartDialogBuilder(getContext())
                 .setTitle("Risk Level " + AnswersCounter())
                 .setSubTitle("Do you wish to join a virtual quarantine?")
@@ -425,7 +421,7 @@ public class SituationsFragment extends Fragment {
                 }).setNegativeButton("No", SmartDialog::dismiss).build().show();
     }
 
-    public void dialog15(){
+    public void dialog15() {
         new SmartDialogBuilder(getContext())
                 .setTitle("Risk Level " + AnswersCounter())
                 .setSubTitle("Your risk level is low, Continue being safe!!!")
