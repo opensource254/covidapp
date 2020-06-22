@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +13,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+
+import java.util.Objects;
 
 import app.azim.opensource254.covidkenya.R;
+import app.azim.opensource254.covidkenya.activities.FirebaseChat.ChatActivity;
 
 public class QuarantineActivity extends AppCompatActivity {
 
 
     //custom  top toolbar
     private Toolbar mtoolbar;
+    private Button btn_talk_to_specialist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +48,10 @@ public class QuarantineActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Virtual Quarantine");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Virtual Quarantine");
+
+        btn_talk_to_specialist = findViewById(R.id.talk_to_a_specialist);
+        btn_talk_to_specialist.setOnClickListener(v1 -> startActivity(new Intent(this, ChatActivity.class)));
     }
 
     //setting navigate up button
