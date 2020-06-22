@@ -26,6 +26,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
 
+        <receiver
+            android:name=".brodcastReceivers.GeofenceBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
