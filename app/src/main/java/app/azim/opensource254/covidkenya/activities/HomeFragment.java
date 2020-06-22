@@ -32,10 +32,12 @@ private    MaterialButton moreTips, mTalkToSpecialist;
         moreTips = v.findViewById(R.id.btn_talk_more_tips);
         mTalkToSpecialist = v.findViewById(R.id.btn_talk_to_a_doctor);
 
+        //DISABLE talk to a specialist button from home fragment
+        mTalkToSpecialist.setEnabled(false);
 
 
-       final RippleBackground rippleBackground= v.findViewById(R.id.blu_content);
-        ImageView imageView= v.findViewById(R.id.btn_bluesafe);
+        final RippleBackground rippleBackground = v.findViewById(R.id.blu_content);
+        ImageView imageView = v.findViewById(R.id.btn_bluesafe);
 
         CardView mnews = v.findViewById(R.id.card_news);
         CardView mheathunits = v.findViewById(R.id.card_health_units);
