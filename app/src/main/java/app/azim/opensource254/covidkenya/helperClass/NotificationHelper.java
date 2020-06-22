@@ -10,12 +10,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 
+import java.util.Random;
+
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import app.azim.opensource254.covidkenya.R;
-
-import java.util.Random;
 
 public class NotificationHelper extends ContextWrapper {
 
