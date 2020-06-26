@@ -49,15 +49,17 @@
       android:paddingHorizontal="@dimen/padding_large">
 
       <TextView
-        android:id="@+id/share_complete_title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/share_learn_more_title"
-        android:textAppearance="?attr/textAppearanceHeadline4" />
+          android:id="@+id/share_complete_title"
+          android:fontFamily="@font/rubik"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="@string/share_learn_more_title"
+          android:textAppearance="?attr/textAppearanceHeadline4" />
 
       <TextView
-        android:id="@+id/share_complete_detail"
+          android:fontFamily="@font/rubik"
+          android:id="@+id/share_complete_detail"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_normal"
