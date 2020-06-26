@@ -7,6 +7,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <!--    splash screen theme-->
@@ -17,6 +18,12 @@
     <style name="CustomBottomNavigationView"
         parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="nuStyle" >
+        <item name="colorPrimary">@color/color_dark_blue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>
