@@ -1,12 +1,15 @@
 package app.azim.opensource254.covidkenya.activities.ExposureNotification;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import app.azim.opensource254.covidkenya.R;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.Objects;
 
@@ -39,6 +42,13 @@ public class ShareDiagnosisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share_diagnosis);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //setting dark text and white ontouch bottom ui
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
 
         if (savedInstanceState != null) {
             // If this is a configuration change such as rotation, restore the fragment that was
