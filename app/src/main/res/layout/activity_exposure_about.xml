@@ -54,44 +54,49 @@
         android:orientation="vertical">
 
         <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:paddingHorizontal="@dimen/padding_large"
-          android:gravity="center"
-          android:text="@string/exposure_about_title"
-          android:textAppearance="?attr/textAppearanceHeadline4" />
+            android:layout_width="fill_parent"
+            android:fontFamily="@font/rubik"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:gravity="center"
+            android:text="@string/exposure_about_title"
+            android:textAppearance="?attr/textAppearanceHeadline4" />
 
         <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:paddingHorizontal="@dimen/padding_large"
-          android:layout_marginTop="@dimen/padding_normal"
-          android:text="@string/exposure_about_description"
-          android:textAppearance="?attr/textAppearanceSubtitle1" />
+            android:layout_width="fill_parent"
+            android:fontFamily="@font/rubik"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:text="@string/exposure_about_description"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
 
         <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:paddingHorizontal="@dimen/padding_large"
-          android:layout_marginTop="@dimen/padding_normal"
-          android:text="@string/exposure_about_settings_button_pre_text"
-          android:textAppearance="?attr/textAppearanceSubtitle1" />
+            android:layout_width="fill_parent"
+            android:fontFamily="@font/rubik"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:text="@string/exposure_about_settings_button_pre_text"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
 
-        <Button
-          android:id="@+id/exposure_about_settings_button"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="@dimen/padding_normal"
-          android:text="@string/exposure_about_settings_button_text"
-          style="@style/Widget.MaterialComponents.Button.TextButton" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/exposure_about_settings_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_normal"
+            android:textColor="@color/colorAccent"
+            android:text="@string/exposure_about_settings_button_text"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
 
         <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:paddingHorizontal="@dimen/padding_large"
-          android:layout_marginBottom="@dimen/padding_normal"
-          android:text="@string/exposure_about_detail"
-          android:textAppearance="?attr/textAppearanceSubtitle1" />
+            android:layout_width="fill_parent"
+            android:fontFamily="@font/rubik"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:layout_marginBottom="@dimen/padding_normal"
+            android:text="@string/exposure_about_detail"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
 
       </LinearLayout>
 
@@ -99,16 +104,5 @@
 
   </LinearLayout>
 
-  <TextView
-    android:id="@+id/watermark"
-    android:textStyle="bold"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:rotation="45"
-    android:text="@string/reference_only"
-    android:textColor="@color/watermark_color"
-    app:autoSizeMaxTextSize="50dp"
-    app:autoSizeTextType="uniform" />
 
 </FrameLayout>
