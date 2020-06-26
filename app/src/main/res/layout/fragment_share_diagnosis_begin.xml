@@ -49,27 +49,30 @@
       android:paddingHorizontal="@dimen/padding_large">
 
       <TextView
-        android:id="@+id/share_complete_title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/share_begin_title"
-        android:textAppearance="?attr/textAppearanceHeadline4" />
+          android:id="@+id/share_complete_title"
+          android:fontFamily="@font/rubik"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="@string/share_begin_title"
+          android:textAppearance="?attr/textAppearanceHeadline4" />
 
       <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/padding_normal"
-        android:gravity="center"
-        android:text="@string/share_begin_detail"
-        android:textAppearance="?attr/textAppearanceSubtitle1" />
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginVertical="@dimen/padding_normal"
+          android:gravity="center"
+          android:fontFamily="@font/rubik"
+          android:text="@string/share_begin_detail"
+          android:textAppearance="?attr/textAppearanceSubtitle1" />
 
       <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/padding_normal"
-        android:text="@string/share_begin_description"
-        android:textAppearance="?attr/textAppearanceBody1" />
+          android:layout_width="fill_parent"
+          android:fontFamily="@font/rubik"
+          android:layout_height="wrap_content"
+          android:layout_marginVertical="@dimen/padding_normal"
+          android:text="@string/share_begin_description"
+          android:textAppearance="?attr/textAppearanceBody1" />
 
     </LinearLayout>
 
@@ -83,22 +86,25 @@
     android:background="?android:attr/colorBackground"
     android:elevation="20dp">
 
-    <Button
-      android:id="@+id/share_next_button"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="@dimen/padding_normal"
-      android:textColor="@color/colorPrimary"
-      android:text="@string/btn_next"
-        android:theme="@style/nuStyle"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:text="@string/btn_next"
+        android:backgroundTint="@color/colorAccent"
+        android:fontFamily="@font/baloo"
+        android:textColor="@color/colorPrimary"
+        android:theme="@style/nuStyle" />
 
-    <Button
-      android:id="@+id/share_cancel_button"
-      style="@style/Widget.MaterialComponents.Button.TextButton"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginHorizontal="@dimen/padding_normal"
-        android:textColor="@color/color_dark_blue"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_cancel_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:textColor="@color/colorAccent"
         android:text="@string/btn_cancel" />
 
   </LinearLayout>
