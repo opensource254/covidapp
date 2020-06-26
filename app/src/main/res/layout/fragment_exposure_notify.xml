@@ -34,17 +34,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/padding_extra_large"
+                    android:fontFamily="@font/rubik"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:text="@string/exposure_notifications_are_turned_on" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/exposure_notification_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:text="@string/turn_off_exposure_notifications_action"
-                    android:textColor="@color/color_dark_blue"
                     android:layout_gravity="center_horizontal"
-                    style="?attr/materialButtonOutlinedStyle" />
+                    android:fontFamily="@font/baloo"
+                    android:textColor="@color/colorAccent" />
 
             </LinearLayout>
 
@@ -60,6 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/padding_large"
+                    android:fontFamily="@font/rubik"
                     android:paddingBottom="@dimen/padding_normal"
                     android:text="@string/share_test_result_title"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
@@ -69,20 +72,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/padding_large"
+                    android:fontFamily="@font/rubik"
                     android:paddingBottom="@dimen/padding_extra_large"
                     android:text="@string/share_test_result_description"
                     android:textAppearance="?attr/textAppearanceBody1" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/fragment_notify_share_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginHorizontal="@dimen/padding_large"
                     android:layout_marginBottom="@dimen/padding_large"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:backgroundTint="@color/colorAccent"
+                    android:fontFamily="@font/baloo"
                     android:textColor="@color/colorPrimary"
-                    android:text="@string/share_test_result"
-                    android:theme="@style/nuStyle"/>
+                    android:text="@string/share_test_result" />
 
                 <include layout="@layout/horizontal_divider" />
 
