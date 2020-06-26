@@ -49,51 +49,37 @@ public class ExposureHomeFragment extends Fragment {
             infoStatus.setText(R.string.notifications_disabled_info);
         }
 
-        view.findViewById(R.id.exposure_notification_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                exposureNotificationSharedPref.setEnable(false);
-                if(!exposureNotificationSharedPref.isEnabled()){
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
-                }
+        view.findViewById(R.id.exposure_notification_btn).setOnClickListener(v -> {
+            exposureNotificationSharedPref.setEnable(false);
+            if (!exposureNotificationSharedPref.isEnabled()) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
-        view.findViewById(R.id.exposure_about_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchAboutAction();
+        view.findViewById(R.id.exposure_about_button).setOnClickListener(v -> launchAboutAction());
+
+        view.findViewById(R.id.create_test_exposure_btn).setOnClickListener(v -> {
+            List<ExposureEntity> exposureEntities = new ArrayList<>();
+
+            long[] millies = {System.currentTimeMillis(), System.currentTimeMillis()};
+
+            for (long milly : millies) {
+                ExposureEntity exposureEntity = new ExposureEntity(
+                        milly, millies[0]);
+
+                exposureEntities.add(exposureEntity);
             }
-        });
-
-        view.findViewById(R.id.create_test_exposure_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<ExposureEntity> exposureEntities = new ArrayList<>();
-
-                long[] millies = {System.currentTimeMillis(), System.currentTimeMillis()};
-
-                for(int i=0; i<millies.length;i++){
-                    ExposureEntity exposureEntity = new ExposureEntity(
-                            millies[i], millies[0]);
-
-                    exposureEntities.add(exposureEntity);
-                }
-                refreshUiForExposureEntities(exposureEntities);
-            }
+            refreshUiForExposureEntities(exposureEntities);
         });
 
         RecyclerView exposuresList = view.findViewById(R.id.exposures_list);
         adapter =
                 new ExposureEntityAdapter(
-                        new ExposureEntityAdapter.OnExposureClickListener() {
-                            @Override
-                            public void onClick(ExposureEntity exposureEntity) {
-                                ExposureBottomSheetFragment sheet =
-                                        ExposureBottomSheetFragment.newInstance(exposureEntity);
-                                sheet.show(ExposureHomeFragment.this.getChildFragmentManager(), ExposureBottomSheetFragment.TAG);
-                            }
+                        exposureEntity -> {
+                            ExposureBottomSheetFragment sheet =
+                                    ExposureBottomSheetFragment.newInstance(exposureEntity);
+                            sheet.show(ExposureHomeFragment.this.getChildFragmentManager(), ExposureBottomSheetFragment.TAG);
                         });
         exposuresList.setItemAnimator(null);
         exposuresList.setLayoutManager(
