@@ -1,0 +1,185 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package app.azim.opensource254.covidkenya.activities.ExposureNotification;
+
+import android.os.Bundle;
+import android.os.Parcel;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.CalendarConstraints.DateValidator;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+
+import org.threeten.bp.Instant;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZonedDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.FormatStyle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Transformations;
+import androidx.lifecycle.ViewModelProvider;
+import app.azim.opensource254.covidkenya.R;
+
+import static app.azim.opensource254.covidkenya.activities.ExposureNotification.ShareDiagnosisActivity.SHARE_EXPOSURE_FRAGMENT_TAG;
+
+/** Page 2 of the adding a positive diagnosis flow */
+public class ShareDiagnosisEditFragment extends Fragment {
+
+  private static final String TAG = "ShareExposureEditFrag";
+
+  private static final DateTimeFormatter formatter =
+      DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+
+    EditText dateEditText;
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.fragment_share_diagnosis_edit, parent, false);
+  }
+
+  @Override
+  public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+
+    dateEditText = view.findViewById(R.id.share_test_date);
+//    shareDiagnosisViewModel
+//        .getTestTimestampLiveData()
+//        .observe(
+//            getViewLifecycleOwner(),
+//            timestamp ->
+//                dateEditText.setText(timestamp != null ? formatter.format(timestamp) : ""));
+    dateEditText.setText(dateEditText.getText());
+    dateEditText.addTextChangedListener(enableNextWhenFieldsAreFilledOut);
+    dateEditText.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ShareDiagnosisEditFragment.this.showMaterialDatePicker();
+        }
+    });
+
+    EditText identifierEditText = view.findViewById(R.id.share_test_identifier);
+    identifierEditText.setText(identifierEditText.getText());
+    identifierEditText.addTextChangedListener(enableNextWhenFieldsAreFilledOut);
+
+    // "Next" button should be disabled until both fields are non-empty
+    Button nextButton = view.findViewById(R.id.share_next_button);
+    nextButton.setEnabled(false);
+    nextButton.setOnClickListener(
+        v ->
+            getFragmentManager()
+                .beginTransaction()
+                .replace(
+                    R.id.share_exposure_fragment,
+                    new ShareDiagnosisReviewFragment(),
+                    SHARE_EXPOSURE_FRAGMENT_TAG)
+                .addToBackStack(null)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit());
+
+    view.findViewById(R.id.share_cancel_button).setOnClickListener((v) -> cancelAction());
+
+    view.findViewById(R.id.learn_more_button)
+        .setOnClickListener(
+            v ->
+                getFragmentManager()
+                    .beginTransaction()
+                    .replace(
+                        R.id.share_exposure_fragment,
+                        new ShareDiagnosisLearnMoreFragment(),
+                        SHARE_EXPOSURE_FRAGMENT_TAG)
+                    .addToBackStack(null)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit());
+
+    View upButton = view.findViewById(android.R.id.home);
+    upButton.setContentDescription(getString(R.string.navigate_up));
+    upButton.setOnClickListener((v) -> navigateUp());
+  }
+
+  private void cancelAction() {
+    requireActivity().finish();
+  }
+
+  private void navigateUp() {
+    getFragmentManager().popBackStack();
+  }
+
+    private void showMaterialDatePicker() {
+        //Date Picker
+        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
+        MaterialDatePicker picker = builder.build();
+        picker.show(getFragmentManager(), picker.toString());
+        picker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @Override
+            public void onPositiveButtonClick(Object selection) {
+                dateEditText.setText(picker.getHeaderText());
+            }
+        });
+  }
+
+  private final TextWatcher enableNextWhenFieldsAreFilledOut =
+      new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+        @Override
+        public void afterTextChanged(Editable s) {
+          EditText identifierEditText = requireView().findViewById(R.id.share_test_identifier);
+          //shareDiagnosisViewModel.setTestIdentifier(identifierEditText.getText().toString());
+
+          EditText dateEditText = requireView().findViewById(R.id.share_test_date);
+
+          Button nextButton = requireView().findViewById(R.id.share_next_button);
+          nextButton.setEnabled(
+              !TextUtils.isEmpty(identifierEditText.getText())
+                  && !TextUtils.isEmpty(dateEditText.getText()));
+        }
+      };
+
+  private static final DateValidator NOW_OR_PAST_DATE_VALIDATOR =
+      new DateValidator() {
+        @Override
+        public boolean isValid(long date) {
+          return date <= System.currentTimeMillis();
+        }
+
+        @Override
+        public int describeContents() {
+          // Return no-op value. This validator has no state to describe
+          return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+          // No-op. This validator has no state to parcelize
+        }
+      };
+}

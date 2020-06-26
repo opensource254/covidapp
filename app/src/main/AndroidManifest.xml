@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="app.azim.opensource254.covidkenya"
     android:versionCode="TODO">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -25,12 +24,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".activities.ExposureNotification.NotifyLearnMoreActivity"></activity>
+        <activity android:name=".activities.ExposureNotification.ShareDiagnosisActivity" />
+        <activity android:name=".activities.ExposureNotification.ExposureNotificationActivity" />
 
         <receiver
             android:name=".brodcastReceivers.GeofenceBroadcastReceiver"
             android:enabled="true"
             android:exported="true" />
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -56,6 +57,7 @@
         <activity android:name=".activities.SymptomActivity" />
         <activity android:name=".activities.HealthUnitsActivity" />
         <activity android:name=".activities.TipsDetails" />
+        <activity android:name=".activities.ExposureNotification.ExposureAboutActivity" />
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.SplashScreen">
