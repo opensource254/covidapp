@@ -41,37 +41,24 @@ public class ExposureNotifyFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         Button exposureNotificationBtn = view.findViewById(R.id.exposure_notification_btn);
         exposureNotificationBtn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        exposureNotificationSharedPref.setEnable(false);
-                        if(!exposureNotificationSharedPref.isEnabled()){
-                            Intent intent = new Intent(getActivity(), MainActivity.class);
-                            startActivity(intent);
-                        }
+                v -> {
+                    exposureNotificationSharedPref.setEnable(false);
+                    if (!exposureNotificationSharedPref.isEnabled()) {
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
                     }
                 });
 
         Button shareButton = view.findViewById(R.id.fragment_notify_share_button);
         shareButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ExposureNotifyFragment.this.startActivity(ShareDiagnosisActivity
-                                .newIntentForAddFlow(ExposureNotifyFragment.this.requireContext()));
-                    }
-                });
+                v -> ExposureNotifyFragment.this.startActivity(ShareDiagnosisActivity
+                        .newIntentForAddFlow(ExposureNotifyFragment.this.requireContext())));
 
         PositiveDiagnosisEntityAdapter notifyViewAdapter =
                 new PositiveDiagnosisEntityAdapter(
-                        new PositiveDiagnosisEntityAdapter.OnPositiveDiagnosisClickListener() {
-                            @Override
-                            public void onClick(PositiveDiagnosisEntity positiveDiagnosisEntity) {
-                                ExposureNotifyFragment.this.startActivity(
-                                        ShareDiagnosisActivity.newIntentForViewFlow(
-                                                ExposureNotifyFragment.this.requireContext(), positiveDiagnosisEntity));
-                            }
-                        });
+                        positiveDiagnosisEntity -> ExposureNotifyFragment.this.startActivity(
+                                ShareDiagnosisActivity.newIntentForViewFlow(
+                                        ExposureNotifyFragment.this.requireContext(), positiveDiagnosisEntity)));
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         RecyclerView recyclerView = view.findViewById(R.id.notify_recycler_view);
         recyclerView.setLayoutManager(layoutManager);
