@@ -55,18 +55,20 @@
         android:paddingHorizontal="@dimen/padding_large">
 
         <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center"
-          android:text="@string/exposure_learn_more_title"
-          android:textAppearance="?attr/textAppearanceHeadline4" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/rubik"
+            android:text="@string/exposure_learn_more_title"
+            android:textAppearance="?attr/textAppearanceHeadline4" />
 
         <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/padding_normal"
-          android:text="@string/exposure_learn_more_description"
-          android:textAppearance="?attr/textAppearanceSubtitle1" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:fontFamily="@font/rubik"
+            android:text="@string/exposure_learn_more_description"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
 
       </LinearLayout>
 
@@ -74,16 +76,5 @@
 
   </LinearLayout>
 
-  <TextView
-    android:id="@+id/watermark"
-    android:textStyle="bold"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:rotation="45"
-    android:text="@string/reference_only"
-    android:textColor="@color/watermark_color"
-    app:autoSizeMaxTextSize="50dp"
-    app:autoSizeTextType="uniform" />
 
 </FrameLayout>
