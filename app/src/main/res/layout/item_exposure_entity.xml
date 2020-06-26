@@ -44,13 +44,15 @@
       android:orientation="vertical">
 
       <TextView
-        android:layout_width="match_parent"
+          android:fontFamily="@font/rubik"
+          android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/possible_exposure"
         android:textAppearance="?textAppearanceBody1" />
 
       <TextView
-        android:id="@+id/exposure_item_timestamp"
+          android:fontFamily="@font/rubik"
+          android:id="@+id/exposure_item_timestamp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="RecycleView 30, 2020"
