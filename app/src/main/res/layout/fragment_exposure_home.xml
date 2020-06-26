@@ -41,6 +41,7 @@
                         android:id="@+id/exposure_notification_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         android:layout_marginBottom="@dimen/padding_normal"
                         android:text="@string/exposure_notifications_are_turned_on" />
@@ -49,8 +50,9 @@
                         android:id="@+id/exposure_notification_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/colorAccent"
                         android:text="@string/turn_off_exposure_notifications_action"
-                        android:textColor="@color/color_dark_blue"
                         android:layout_gravity="center_horizontal"
                         style="?attr/materialButtonOutlinedStyle" />
 
@@ -70,6 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/exposure_notifications"
+                        android:fontFamily="@font/rubik"
                         android:textAppearance="?attr/textAppearanceBody1" />
 
                     <TextView
@@ -77,6 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/padding_micro"
+                        android:fontFamily="@font/rubik"
                         android:textAppearance="?attr/textAppearanceBody2"
                         tools:text="Off – Dynamic Value"
                         android:textColor="?attr/colorControlNormal" />
@@ -93,6 +97,7 @@
                 android:layout_marginTop="@dimen/padding_large"
                 android:paddingStart="@dimen/padding_large"
                 android:paddingEnd="@dimen/padding_large"
+                android:fontFamily="@font/rubik"
                 android:text="@string/past_exposures"
                 android:textAppearance="?attr/textAppearanceOverline" />
 
@@ -109,6 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/no_exposures"
+                    android:fontFamily="@font/rubik"
                     android:textAppearance="?attr/textAppearanceBody1" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -140,6 +146,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/rubik"
                     android:paddingHorizontal="@dimen/padding_small"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?attr/colorControlNormal"
@@ -147,14 +154,16 @@
 
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="?attr/materialButtonOutlinedStyle"
                 android:id="@+id/create_test_exposure_btn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_dark_blue"
+                android:elevation="0dp"
+                android:fontFamily="@font/baloo"
+                android:textColor="@color/colorAccent"
                 android:text="create test exposure"
-                android:layout_gravity="center_horizontal"
-                style="?attr/materialButtonOutlinedStyle"/>
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 
