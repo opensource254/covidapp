@@ -35,52 +35,57 @@
       android:orientation="vertical">
 
       <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:gravity="center"
-        android:text="@string/possible_exposure"
-        android:textAppearance="?attr/textAppearanceHeadline6" />
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          android:gravity="center"
+          android:fontFamily="@font/rubik"
+          android:text="@string/possible_exposure"
+          android:textAppearance="?attr/textAppearanceHeadline6" />
 
       <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_small"
-        android:text="@string/actual_copy"
-        android:textAppearance="?attr/textAppearanceBody1" />
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="@dimen/padding_small"
+          android:fontFamily="@font/rubik"
+          android:text="@string/actual_copy"
+          android:textAppearance="?attr/textAppearanceBody1" />
 
       <TextView
-        android:id="@+id/possible_exposure_subheading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/padding_normal"
-        android:paddingHorizontal="@dimen/padding_small"
-        tools:text="" />
+          android:id="@+id/possible_exposure_subheading"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/rubik"
+          android:paddingBottom="@dimen/padding_normal"
+          android:paddingHorizontal="@dimen/padding_small"
+          tools:text="" />
 
       <include layout="@layout/horizontal_divider" />
 
       <TextView
-        android:id="@+id/verified_result_explanation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/padding_normal"
-        android:paddingHorizontal="@dimen/padding_small"
-        tools:text="@string/verified_result_explanation"
-        android:textAppearance="?attr/textAppearanceBody1" />
+          android:id="@+id/verified_result_explanation"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingTop="@dimen/padding_normal"
+          android:fontFamily="@font/rubik"
+          android:paddingHorizontal="@dimen/padding_small"
+          tools:text="@string/verified_result_explanation"
+          android:textAppearance="?attr/textAppearanceBody1" />
 
-      <Button
-        android:id="@+id/learn_more_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/learn_more"
-        style="@style/Widget.MaterialComponents.Button.TextButton" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/learn_more_button"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/learn_more"
+          style="@style/Widget.MaterialComponents.Button.TextButton" />
 
       <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/padding_normal"
-        android:paddingHorizontal="@dimen/padding_small"
-        android:text="@string/verified_result_next_steps"
-        android:textAppearance="?attr/textAppearanceBody1" />
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingBottom="@dimen/padding_normal"
+          android:paddingHorizontal="@dimen/padding_small"
+          android:fontFamily="@font/rubik"
+          android:text="@string/verified_result_next_steps"
+          android:textAppearance="?attr/textAppearanceBody1" />
 
       <include layout="@layout/horizontal_divider" />
 
@@ -96,24 +101,27 @@
           android:src="@drawable/ic_info_black_24dp"/>
 
         <TextView
-          android:id="@+id/info_status"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:paddingHorizontal="@dimen/padding_small"
-          android:textAppearance="?attr/textAppearanceBody2"
-          android:textColor="?attr/colorControlNormal" />
+            android:id="@+id/info_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/rubik"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/colorControlNormal" />
 
       </LinearLayout>
 
-      <Button
-        android:id="@+id/done_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_normal"
-        android:layout_marginVertical="@dimen/padding_small"
-          android:textColor="@color/color_dark_blue"
-        android:text="@string/done" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/done_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="@dimen/padding_normal"
+          android:layout_marginVertical="@dimen/padding_small"
+          style="?attr/materialButtonOutlinedStyle"
+          android:fontFamily="@font/baloo"
+          android:textColor="@color/colorAccent"
+          android:text="@string/done" />
 
     </LinearLayout>
 
