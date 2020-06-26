@@ -26,9 +26,9 @@
         app:tabMaxWidth="0dp"
         app:tabMode="fixed"
         app:tabTextAppearance="?textAppearanceBody1"
-        app:tabIndicatorColor="@color/color_dark_blue"
-        app:tabSelectedTextColor="@color/color_dark_blue"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorAccent"
         app:tabPaddingStart="0dp"
-        app:tabPaddingEnd="0dp"/>
+        app:tabPaddingEnd="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
