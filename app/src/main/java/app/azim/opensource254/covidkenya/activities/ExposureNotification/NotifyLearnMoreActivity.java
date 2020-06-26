@@ -27,11 +27,6 @@ public class NotifyLearnMoreActivity extends AppCompatActivity {
 
         View upButton = findViewById(android.R.id.home);
         upButton.setContentDescription(getString(R.string.navigate_up));
-        upButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NotifyLearnMoreActivity.this.onBackPressed();
-            }
-        });
+        upButton.setOnClickListener(v -> NotifyLearnMoreActivity.this.onBackPressed());
     }
 }
