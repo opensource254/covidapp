@@ -41,10 +41,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:fontFamily="@font/rubik"
                     android:text="@string/onboarding_finish_title"
                     android:textAppearance="?attr/textAppearanceHeadline4"/>
 
                 <TextView
+                    android:fontFamily="@font/rubik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/padding_normal"
