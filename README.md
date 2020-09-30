@@ -52,7 +52,7 @@ Contributions are always welcome. Please make sure you read [Contributing notes]
 | GET     | `/api/v1/counties`    | Get all counties        |
 | GET     | `api/v1/county/:id`   | Get all counties by ids | 
 
-
+opensourced 
 
 [Play Store]: https://play.google.com/store/apps/
 [Play Store Badge]: https://play.google.com/intl/en_us/badges/images/badge_new.png
