@@ -1,6 +1,6 @@
  ![Android CI](https://github.com/opensource254/covidapp/workflows/Android%20CI/badge.svg)
-## This project is no longer supported and  will be archived 2/2/2021
-
+## This project is no longer supported
+archived 
 ## Official Covid 19 APP for Kenya
 
 [![Get it on Google Play][Play Store Badge]][Play Store] coming soon....
